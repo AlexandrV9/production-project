@@ -6,6 +6,7 @@ import { routeConfig } from "shared/config/routeConfig/routeConfig";
 interface AppRouterProps {
   
 }
+
  
 const AppRouter: FC<AppRouterProps> = () => {
   return (

@@ -6,9 +6,8 @@ import "./styles/index.scss";
 
 import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
 import { classNames } from "shared/lib/classNames/classNames";
-import { MainPage } from "pages/MainPage";
-import { AboutPage } from "pages/AboutPage";
 import { AppRouter } from "./providers/router";
+import { NavBar } from "widgets/NavBar";
 
 interface AppProps {};
 
@@ -19,11 +18,9 @@ const App: FC<AppProps> = () => {
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <button onClick={toggleTheme}>Toggle</button>
-      <Link to="/">Главная</Link>
-      <Link to="/about">О сайте</Link>
-
+      <NavBar />
       <AppRouter />
+      <button onClick={toggleTheme}>Toggle</button>
     </div>
   );
 };
