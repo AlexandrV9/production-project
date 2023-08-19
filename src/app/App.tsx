@@ -1,6 +1,4 @@
-import { FC, Suspense, useContext, useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { FC } from "react";
 
 import "./styles/index.scss";
 
@@ -14,13 +12,12 @@ interface AppProps {};
 
 const App: FC<AppProps> = () => {
 
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div className={classNames('app', {}, [theme])}>
       <NavBar />
       <AppRouter />
-      <button onClick={toggleTheme}>Toggle</button>
     </div>
   );
 };

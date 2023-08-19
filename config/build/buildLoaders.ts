@@ -13,6 +13,23 @@ export function buildLoaders({
   // для того, чтобы чётко видеить, где какой 
   // лоадер располагается 
 
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
+      },
+    ],
+  }
+
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  }
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -39,7 +56,9 @@ export function buildLoaders({
   }
 
   return [
+    fileLoader,
+    svgLoader,
     typescriptLoader, 
-    cssLoader
+    cssLoader,
   ]
 }
