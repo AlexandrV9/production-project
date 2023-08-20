@@ -13,6 +13,33 @@ export function buildLoaders({
   // для того, чтобы чётко видеить, где какой 
   // лоадер располагается 
 
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  }
+
+  const babelLoader = {
+    test: /\.(js|jsx|ts|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ['@babel/preset-env'],
+        plugins: [
+          [
+            "i18next-extract", 
+            {
+              locals: ['ru', 'en'],
+              keyAsDefaultValue: true,
+              saveMissing: true,
+              outputPath: 'public/locales/{{locale}}/{{ns}}.json',
+            }
+          ]
+        ]
+      }
+    }
+  }
+
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff2|woff)$/i,
     use: [
@@ -23,11 +50,6 @@ export function buildLoaders({
         },
       },
     ],
-  }
-
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
   }
 
   const cssLoader = {
@@ -58,6 +80,7 @@ export function buildLoaders({
   return [
     fileLoader,
     svgLoader,
+    babelLoader,
     typescriptLoader, 
     cssLoader,
   ]
