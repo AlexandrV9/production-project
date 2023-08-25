@@ -11,8 +11,8 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
     "airbnb",
-    "prettier",
     "plugin:i18next/recommended",
+    "prettier",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -26,7 +26,10 @@ module.exports = {
   rules: {
 		'react/jsx-indent': [2, 2],
 		'react/jsx-indent-props': [2, 2],
-		'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+		'react/jsx-filename-extension': [
+      2, 
+      { extensions: ['.js', '.jsx', '.tsx'] }
+    ],
 		'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
 		'react/require-default-props': 'off',
@@ -38,7 +41,8 @@ module.exports = {
     'no-underscore-dangle': 'off',
 		'react/jsx-props-no-spreading': 'warn',
 		'no-unused-vars': 'warn',
-    "i18next/no-literal-string": ['error', { markupOnly: true }]
+    "i18next/no-literal-string": ['warn', { markupOnly: true }],
+    'max-len': ['error', { ignoreComments: true, }]
 	},
 	globals: {
 		__IS_DEV__: true,
