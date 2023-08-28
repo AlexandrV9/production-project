@@ -42,7 +42,7 @@ module.exports = {
 		'react/jsx-props-no-spreading': 'warn',
 		'no-unused-vars': 'warn',
     "i18next/no-literal-string": ['warn', { markupOnly: true }],
-    'max-len': ['error', { ignoreComments: true, }]
+    'max-len': ['error', { ignoreComments: true, }],
 	},
 	globals: {
 		__IS_DEV__: true,

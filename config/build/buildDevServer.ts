@@ -10,6 +10,6 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     // в браузере страницу с нашим
     // приложением
     historyApiFallback: true,
-    hot: true,
+    hot: true
   };
 }
