@@ -27,7 +27,7 @@ module.exports = {
 		'react/jsx-indent': [2, 2],
 		'react/jsx-indent-props': [2, 2],
 		'react/jsx-filename-extension': [
-      2, 
+      2,
       { extensions: ['.js', '.jsx', '.tsx'] }
     ],
 		'import/no-unresolved': 'off',
@@ -41,10 +41,20 @@ module.exports = {
     'no-underscore-dangle': 'off',
 		'react/jsx-props-no-spreading': 'warn',
 		'no-unused-vars': 'warn',
-    "i18next/no-literal-string": ['warn', { markupOnly: true }],
+    "i18next/no-literal-string": [
+        'error', { markupOnly: true, ignoreAttribute: ["data-testid"] }
+    ],
     'max-len': ['error', { ignoreComments: true, }],
 	},
 	globals: {
 		__IS_DEV__: true,
 	},
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                "i18next/no-literal-string": "off"
+            }
+        }
+    ]
 };
