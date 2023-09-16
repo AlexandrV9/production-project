@@ -1,13 +1,13 @@
-.SideBar {
+.Sidebar {
   height: calc(100vh - var(--navbar-height));
-  width: var(--sidbar-width);
+  width: var(--sidebar-width);
   background: var(--inverted-bg-color);
   position: relative;
-  transition: width .3s;
+  transition: width 0.3s;
 }
 
 .collapsed {
-  width: var(--sidbar-width-collapsed);
+  width: var(--sidebar-width-collapsed);
 }
 
 .switchers {

@@ -1,7 +1,9 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
-export const AboutPageAsync = lazy(() => new Promise(resolve => {
-  // @ts-ignore
-  // ТАК В РЕАЛЬНЫХ ПРОЕКТАХ НЕ ДЕЛАЕМ. ЭТО ИСКУСТВЕННАЯ ЗАДЕРЖКА
-  setTimeout(() => resolve(import('./AboutPage')), 1200)
-}));  
+export const AboutPageAsync = lazy(
+  () => new Promise((resolve) => {
+    // @ts-ignore
+    // ТАК В РЕАЛЬНЫХ ПРОЕКТАХ НЕ ДЕЛАТЬ!!!!! ДЕЛАЕМ ДЛЯ КУРСА!
+    setTimeout(() => resolve(import('./AboutPage')), 1500);
+  }),
+);

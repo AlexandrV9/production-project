@@ -1,19 +1,17 @@
-import { FC, useState } from "react";
+/* eslint-disable i18next/no-literal-string */
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useState } from 'react';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
+import { Button } from 'shared/ui/Button/Button';
+import cls from './Sidebar.module.scss';
 
-import { classNames } from "shared/lib/classNames/classNames";
-import Button from "shared/ui/Button/Button";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
-import { LangSwitcher } from "widgets/LangSwitcher";
-import cls from "./SideBar.module.scss";
-
-interface SideBarProps {
+interface SidebarProps {
   className?: string;
 }
 
-const SideBar: FC<SideBarProps> = (props) => {
-  const { className } = props;
-
-  const [collapsed, setCollapsed] = useState<boolean>(false);
+export const Sidebar = ({ className }: SidebarProps) => {
+  const [collapsed, setCollapsed] = useState(false);
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
@@ -22,14 +20,11 @@ const SideBar: FC<SideBarProps> = (props) => {
   return (
     <div
       data-testid="sidebar"
-      className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
         className,
       ])}
     >
-      <Button
-        data-testid="sidebar-toggle"
-        onClick={onToggle}
-      >
+      <Button data-testid="sidebar-toggle" onClick={onToggle}>
         toggle
       </Button>
       <div className={cls.switchers}>
@@ -39,5 +34,3 @@ const SideBar: FC<SideBarProps> = (props) => {
     </div>
   );
 };
-
-export default SideBar;
