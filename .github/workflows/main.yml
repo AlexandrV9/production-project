@@ -1,11 +1,11 @@
 name: linting, testing, building
-on: 
-  push: 
+on:
+  push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 jobs:
-  pipline:
+  pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
