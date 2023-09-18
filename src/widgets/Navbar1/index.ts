@@ -1,3 +1,3 @@
-import { Navbar } from './ui/Navbar1';
+import { Navbar } from './ui/Navbar';
 
 export { Navbar };
