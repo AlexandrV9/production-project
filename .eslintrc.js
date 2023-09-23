@@ -6,8 +6,8 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'airbnb',
     'plugin:i18next/recommended',
+    'airbnb',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
