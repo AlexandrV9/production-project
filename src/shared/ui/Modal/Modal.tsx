@@ -65,11 +65,10 @@ const Modal: FC<ModalProps> = (props) => {
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
     [cls.closing]: isClosing,
-    [cls[theme]]: true,
   };
 
   return (
-    <div className={classNames(cls.Modal, mods, [className])}>
+    <div className={classNames(cls.Modal, mods, [className, theme])}>
       <div className={cls.overlay} onClick={closeHandler}>
         <div className={cls.content} onClick={onContentClick}>
           {children}
