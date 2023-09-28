@@ -1,6 +1,13 @@
 {
   "": "",
+  "Enter": "Enter",
+  "Enter ": "Enter ",
+  "Enter pass": "Enter pass",
+  "Enter password": "Enter password",
+  "Enter username": "Enter username",
+  "SignIn": "SignIn",
   "decrement": "decrement",
+  "enter": "enter",
   "increment": "increment",
   "throw error": "throw error",
   "translation": {
