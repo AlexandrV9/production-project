@@ -1,6 +1,5 @@
 import {
   ChangeEvent,
-  FC,
   InputHTMLAttributes,
   memo,
   useEffect,

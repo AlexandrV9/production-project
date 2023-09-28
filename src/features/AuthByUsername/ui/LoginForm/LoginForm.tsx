@@ -11,7 +11,7 @@ interface LoginFormProps {
   className?: string;
 }
 
-const LoginForm: FC<LoginFormProps> = (props) => {
+export const LoginForm: FC<LoginFormProps> = (props) => {
   const { t } = useTranslation();
 
   const { className } = props;
@@ -25,4 +25,3 @@ const LoginForm: FC<LoginFormProps> = (props) => {
   );
 };
 
-export default LoginForm;
