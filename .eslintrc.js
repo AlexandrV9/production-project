@@ -47,7 +47,7 @@ module.exports = {
     ],
     'max-len': [
       2,
-      { code: 100, ignoreComments: true, ignorePattern: '^import\\W.*' },
+      { code: 120, ignoreComments: true, ignorePattern: '^import\\W.*' },
     ],
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',

@@ -18,13 +18,6 @@ server.use(async (req, res, next) => {
   next();
 });
 
-// eslint-disable-next-line consistent-return
-server.use(async (req, res, next) => {
-  if (!req.headers.authorization) {
-    return res.status(403).json({ message: 'Auth error' });
-  }
-  next();
-});
 
 server.post('/login', (req, res) => {
   try {
@@ -47,6 +40,14 @@ server.post('/login', (req, res) => {
     console.log(e);
     return res.status(500).json({ message: e.message });
   }
+});
+
+// eslint-disable-next-line consistent-return
+server.use(async (req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({ message: 'Auth error' });
+  }
+  next();
 });
 
 server.use(router);
