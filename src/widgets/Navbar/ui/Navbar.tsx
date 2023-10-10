@@ -14,7 +14,6 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ className }: NavbarProps) => {
-
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
@@ -29,8 +28,8 @@ export const Navbar = ({ className }: NavbarProps) => {
   }, []);
 
   const handleLogout = useCallback(() => {
-    dispatch(userActions.logout())
-  },[dispatch])
+    dispatch(userActions.logout());
+  }, [dispatch]);
 
   if (authData) {
     return (
@@ -56,7 +55,9 @@ export const Navbar = ({ className }: NavbarProps) => {
       >
         {t('Войти')}
       </Button>
-      <LoginModal isOpen={isAuthModal} onClose={handleCloseModal} />
+      {isAuthModal && (
+        <LoginModal isOpen={isAuthModal} onClose={handleCloseModal} />
+      )}
     </div>
   );
 };
