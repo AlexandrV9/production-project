@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -7,6 +7,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/ui/Input';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { getLoginUsername } from '../../../AuthByUsername/model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginIsLoading } from '../../../AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../../AuthByUsername/model/selectors/getLoginPassword/getLoginPassword';
@@ -18,6 +19,7 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess?: () => void;  // вызывается тогда, когда пользователь успешно авторизован
 }
 
 const initialReducers: ReducersList = {
@@ -27,9 +29,9 @@ const initialReducers: ReducersList = {
 const LoginForm = memo((props: LoginFormProps) => {
   const { t } = useTranslation();
 
-  const { className } = props;
+  const { className, onSuccess } = props;
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const username = useSelector(getLoginUsername);
   const isLoading = useSelector(getLoginIsLoading);
@@ -50,9 +52,12 @@ const LoginForm = memo((props: LoginFormProps) => {
     [dispatch],
   );
 
-  const handleSubmit = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const handleSubmit = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if(result.meta.requestStatus === "fulfilled") {
+      onSuccess?.();
+    } 
+  }, [dispatch, password, username, onSuccess]);
 
   return (
     // eslint-disable-next-line i18next/no-literal-string
