@@ -1,6 +1,7 @@
 import {
   FC,
   MouseEvent,
+  MutableRefObject,
   ReactNode,
   useCallback,
   useEffect,
@@ -8,7 +9,7 @@ import {
   useState,
 } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 
 import cls from './Modal.module.scss';
@@ -28,7 +29,7 @@ const Modal: FC<ModalProps> = (props) => {
 
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -69,7 +70,7 @@ const Modal: FC<ModalProps> = (props) => {
     };
   }, [isOpen, onKeyDown]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
     [cls.closing]: isClosing,
   };
