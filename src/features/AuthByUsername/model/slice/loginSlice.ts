@@ -32,7 +32,7 @@ export const loginSlice = createSlice({
       })
       .addCase(loginByUsername.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload; // Тут будет находится ошибка
+        state.error = action.payload as string; // Тут будет находится ошибка
         console.log("2")
       });
   },
