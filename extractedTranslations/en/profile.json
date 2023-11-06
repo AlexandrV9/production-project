@@ -1,6 +1,14 @@
 {
+  "cancel": "",
+  "city": "",
   "edit": "",
+  "erroTextProfileCard": "",
+  "link_avatar": "",
   "profile": "",
+  "save": "",
+  "textUpdatePage": "",
+  "your_age": "",
   "your_last_name": "",
-  "your_name": ""
+  "your_name": "",
+  "your_username": ""
 }

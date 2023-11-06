@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 
-import { Profile } from '../../types/profile';
+import { Profile } from 'entities/Profile';
 
 enum LoginErrors {
   INCORRECT_DATA = '',
@@ -18,7 +18,7 @@ export const fetchProfileData = createAsyncThunk<
   try {
     const res = await extra.api.get<Profile>('/profile');
 
-    console.log(res.data)
+    console.log(res.data);
     return res.data;
   } catch (error) {
     console.log(error);

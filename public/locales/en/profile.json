@@ -2,5 +2,13 @@
   "profile": "Profile",
   "edit": "Edit",
   "your_name": "Your name",
-  "your_last_name": "Your last name"
+  "your_last_name": "Your last name",
+  "erroTextProfileCard": "There was an error loading your profile",
+  "textUpdatePage": "Try refreshing the page",
+  "cancel": "Cancel",
+  "save": "Save",
+  "your_age": "Your age",
+  "city": "Сity",
+  "your_username": "Enter your name",
+  "link_avatar": "Enter link to avatar"
 }

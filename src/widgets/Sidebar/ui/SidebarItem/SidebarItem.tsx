@@ -1,7 +1,9 @@
 import { FC, memo } from 'react';
+import { useSelector } from 'react-redux';
 
 import { t } from 'i18next';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { getUserAuthData } from 'entities/User';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -17,9 +19,15 @@ interface SidebarItemProps {
 const SidebarItem: FC<SidebarItemProps> = memo((props) => {
   const { item, collapsed } = props;
 
+  const isAuth = useSelector(getUserAuthData);
+
   const mods = {
     [cls.collapsed]: collapsed,
   };
+
+  if (!isAuth && item.authOnly) {
+    return null;
+  }
 
   return (
     <AppLink

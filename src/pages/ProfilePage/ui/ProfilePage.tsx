@@ -1,5 +1,8 @@
-/* eslint-disable i18next/no-literal-string */
-import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
+import {
+  fetchProfileData,
+  profileReducer,
+} from 'entities/Profile';
+import { EditableProfileCard } from 'features/EditableProfileCard';
 import { FC, memo, useEffect } from 'react';
 
 import {
@@ -16,9 +19,7 @@ interface ProfilePageProps {
   className?: string;
 }
 
-const ProfilePage: FC<ProfilePageProps> = memo((props) => {
-  const { className } = props;
-
+const ProfilePage: FC<ProfilePageProps> = memo(() => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const ProfilePage: FC<ProfilePageProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <ProfileCard />
+      <EditableProfileCard />
     </DynamicModuleLoader>
   );
 });

@@ -1,0 +1,15 @@
+.EditableProfileCard {
+  .header {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .editBtn,
+  .cancelEditeBtn {
+    margin-left: auto;
+  }
+
+  .cancelEditeBtn {
+    margin-right: 10px;
+  }
+}

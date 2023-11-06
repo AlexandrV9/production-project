@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-    "first": "Александр",
+    "first": "Александ",
     "lastname": "Ващекин",
-    "age": 22,
-    "currency": "RUB",
+    "age": 2232,
+    "currency": "rub",
     "country": "Russia",
-    "city": "Moscow",
-    "username": "admin",
+    "city": "Moscow12",
+    "username": "admin21",
     "avatar": "https://images.unsplash.com/photo-1698018376181-f52e2ecddc5d?auto=format&fit=crop&q=80&w=2832&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 }
