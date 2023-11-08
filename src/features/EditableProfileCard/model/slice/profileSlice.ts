@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Profile, ProfileSchema } from 'entities/Profile';
+import { Profile, ProfileSchema, ValidateProfileError } from 'entities/Profile';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
@@ -25,6 +25,7 @@ export const profileSlice = createSlice({
     },
     cancelEdit: (state) => {
       state.readonly = true;
+      state.validateError = undefined;
       state.form = state.data;
     },
   },
@@ -47,7 +48,7 @@ export const profileSlice = createSlice({
         state.error = action.payload as string; // Тут будет находится ошибка
       })
       .addCase(updateProfileData.pending, (state) => {
-        state.error = undefined;
+        state.validateError = undefined;
         state.isLoading = true;
       })
       .addCase(
@@ -57,11 +58,12 @@ export const profileSlice = createSlice({
           state.data = action.payload;
           state.form = action.payload;
           state.readonly = true;
+          state.validateError = undefined;
         },
       )
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload as string; // Тут будет находится ошибка
+        state.validateError = action.payload as ValidateProfileError[]; // Тут будет находится ошибка
       });
   },
 });

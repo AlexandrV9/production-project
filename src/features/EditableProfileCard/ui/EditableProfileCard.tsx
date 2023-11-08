@@ -2,9 +2,13 @@ import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { ProfileCard, profileActions } from 'entities/Profile';
+import {
+  ProfileCard,
+  ValidateProfileError,
+  profileActions,
+} from 'entities/Profile';
 
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
@@ -16,17 +20,29 @@ import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
 
 import cls from './EditableProfileCard.module.scss';
+import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 interface EditableProfileCardProps {}
 
 export const EditableProfileCard: FC<EditableProfileCardProps> = () => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation('profile');
+
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
 
-  const { t } = useTranslation('profile');
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t('server_error_when_saving'),
+    [ValidateProfileError.INCORRECT_AGE]: t('incorrect_age'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('invalid_region'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t(
+      'first_and_last_name_are_required',
+    ),
+    [ValidateProfileError.NO_DATA]: t('data_not_provided'),
+  };
 
   const handleEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -84,7 +100,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = () => {
 
   const handleChangeCurrency = useCallback(
     (currency: Currency) => {
-      console.log(currency)
+      console.log(currency);
       dispatch(profileActions.updateProfile({ currency }));
     },
     [dispatch],
@@ -96,8 +112,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = () => {
     },
     [dispatch],
   );
-
-  console.log("formData ==>", formData)
 
   return (
     <div className={cls.EditableProfileCard}>
@@ -130,6 +144,14 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = () => {
           </>
         )}
       </div>
+      {validateErrors?.length &&
+        validateErrors.map((err) => (
+          <Text
+            theme={TextTheme.ERROR}
+            text={validateErrorTranslates[err]}
+            key={err}
+          />
+        ))}
       <ProfileCard
         data={formData}
         isLoading={isLoading}
