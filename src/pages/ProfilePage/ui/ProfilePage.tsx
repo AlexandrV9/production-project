@@ -1,7 +1,4 @@
-import {
-  fetchProfileData,
-  profileReducer,
-} from 'entities/Profile';
+import { fetchProfileData, profileReducer } from 'entities/Profile';
 import { EditableProfileCard } from 'features/EditableProfileCard';
 import { FC, memo, useEffect } from 'react';
 
@@ -23,7 +20,9 @@ const ProfilePage: FC<ProfilePageProps> = memo(() => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   return (

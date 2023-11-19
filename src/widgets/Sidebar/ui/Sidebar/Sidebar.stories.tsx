@@ -36,10 +36,15 @@ Dark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     user: {
-      authData: {
-        id: '123',
-        username: 'Tester123',
-      },
+      authData: {},
     },
+  }),
+];
+
+export const NoAuth = Template.bind({});
+NoAuth.args = {};
+NoAuth.decorators = [
+  StoreDecorator({
+    user: {},
   }),
 ];
