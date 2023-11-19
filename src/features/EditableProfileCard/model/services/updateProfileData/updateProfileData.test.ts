@@ -4,8 +4,8 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { updateProfileData } from './updateProfileData';
 import { ValidateProfileError } from 'entities/Profile';
+import { updateProfileData } from './updateProfileData';
 
 const data = {
   username: 'admin',
