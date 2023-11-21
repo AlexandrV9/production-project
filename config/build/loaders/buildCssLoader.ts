@@ -1,6 +1,8 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-export function buildCssLoader(isDev: boolean) {
+import { BuildOptions } from '../types/config';
+
+export function buildCssLoader({ isDev }: BuildOptions) {
   return {
     test: /\.s[ac]ss$/i,
     use: [
