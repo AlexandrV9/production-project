@@ -5,3 +5,8 @@
 .idea
 .prettierignore
 .prettierrc.json
+.fttemplates
+.stylelintignore
+.DS_Store
+
+fttemplates.rar
