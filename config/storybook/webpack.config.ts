@@ -38,7 +38,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     __PROJECT__: JSON.stringify("storybook"),
   }));
 
-  config!.module!.rules!.push(buildCssLoader(true));
+  config!.module!.rules!.push(buildCssLoader({ isDev: true }));
 
   return config;
 };
