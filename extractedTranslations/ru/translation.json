@@ -1,5 +1,7 @@
 {
   "": "",
+  "Article not": "Article not",
+  "Article not found": "Article not found",
   "Authorization form": "Authorization form",
   "Data not provided": "Data not provided",
   "Enter": "Enter",
@@ -13,6 +15,7 @@
   "Invalid_region": "Invalid_region",
   "Server error when saving": "Server error when saving",
   "SignIn": "SignIn",
+  "There was an error loading the article": "There was an error loading the article",
   "You entered an incorrect username or password": "You entered an incorrect username or password",
   "Your last name": "Your last name",
   "cancel": "cancel",

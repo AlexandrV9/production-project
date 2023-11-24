@@ -12,7 +12,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const { t } = useTranslation('');
 
   // eslint-disable-next-line i18next/no-literal-string
-  return <div className={classNames('', {}, [className])}>ArticlesPage</div>;
+  return <div className={classNames(cls.ArticlesPage, {}, [className])}>ArticlesPage</div>;
 };
 
 export default memo(ArticlesPage);

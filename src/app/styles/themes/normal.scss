@@ -1,3 +1,4 @@
+/* stylelint-disable scss/double-slash-comment-empty-line-before */
 :root {
   --bg-color: #e8e8ea;
   --inverted-bg-color: #090949;
@@ -5,4 +6,9 @@
   --secondary-color: #0449e0;
   --inverted-primary-color: #04ff04;
   --inverted-secondary-color: #049604;
+  // skeleton
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgba(0 0 0 / 20%);
+  // btn-code
+  --code-bg: #fff;
 }

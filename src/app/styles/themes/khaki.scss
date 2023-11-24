@@ -1,8 +1,14 @@
+/* stylelint-disable scss/double-slash-comment-empty-line-before */
 .app_khaki_theme {
   --bg-color: #e7feee;
   --inverted-bg-color: #37453c;
   --primary-color: #121615;
-  --secondary-color: #e7feee;
+  --secondary-color: #37453c;
   --inverted-primary-color: #e7feee;
   --inverted-secondary-color: #b3dabe;
+  // skeleton
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgba(0 0 0 / 20%);
+  // btn-code
+  --code-bg: #b3dabe;
 }

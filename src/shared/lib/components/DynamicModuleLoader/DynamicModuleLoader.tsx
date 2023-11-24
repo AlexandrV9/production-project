@@ -13,6 +13,9 @@ interface DynamicModuleLoaderProps {
   removeAfterUnmount?: boolean;
 }
 
+// Если removeAfterUnmount = true, как только компонент размонтируется
+// удаляем редьюсер
+
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
   const { children, reducers, removeAfterUnmount } = props;
 

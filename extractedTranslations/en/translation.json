@@ -1,6 +1,8 @@
 {
   "": "",
   "'Вы ввели неверный логин или пароль'": "",
+  "Article not": "",
+  "Article not found": "",
   "Authorization form": "",
   "Data not provided": "Data not provided",
   "Enter": "",
@@ -14,6 +16,7 @@
   "Invalid_region": "Invalid_region",
   "Server error when saving": "Server error when saving",
   "SignIn": "",
+  "There was an error loading the article": "There was an error loading the article",
   "You entered an incorrect username or password": "",
   "Your last name": "Your last name",
   "cancel": "cancel",

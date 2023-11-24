@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 export default {
   title: 'shared/Text',
@@ -35,7 +35,7 @@ export const Error = Template.bind({});
 Error.args = {
   title: 'Title',
   text: 'Desciption',
-  theme: TextTheme.ERROR
+  theme: TextTheme.ERROR,
 };
 
 export const PrimaryDark = Template.bind({});
@@ -58,3 +58,17 @@ OnlyTextDark.args = {
 };
 
 OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeL = Template.bind({});
+Primary.args = {
+  title: 'Title',
+  text: 'Desciption',
+  size: TextSize.L,
+};
+
+export const SizeM = Template.bind({});
+Primary.args = {
+  title: 'Title',
+  text: 'Desciption',
+  size: TextSize.M,
+};
