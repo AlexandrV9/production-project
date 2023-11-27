@@ -19,7 +19,9 @@
       "img": "https://habrastorage.org/webt/gp/rx/uj/gprxuj2skxbmhitwrnlg1ibcalm.jpeg",
       "views": 1022,
       "createdAt": "26.10.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -107,17 +109,19 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://images.unsplash.com/photo-1606220838315-056192d5e927?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
   "profile": {
-    "first": "Александр",
+    "first": "Александр123",
     "lastname": "Ващекин",
     "age": 32,
     "currency": "EUR",
