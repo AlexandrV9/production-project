@@ -13,6 +13,7 @@ import { CommentList } from 'entities/Comment';
 import { AddCommentForm } from 'features/addNewComment';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -23,7 +24,6 @@ import {
 } from '../../model/slices/ArticleDetailsCommentsSlice';
 
 import cls from './ArticleDetailsPage.module.scss';
-import { Loader } from 'shared/ui/Loader/Loader';
 
 interface ArticleDetailsPageProps {
   className?: string;
