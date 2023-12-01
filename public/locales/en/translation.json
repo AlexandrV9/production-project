@@ -21,5 +21,7 @@
   "You entered an incorrect username or password": "You entered an incorrect username or password",
   "specify_currency": "Specify currency",
   "specify_country": "Please indicate your country",
-  "No_comments": "No comments"
+  "No_comments": "No comments",
+  "Enter comment text": "Enter comment text",
+  "Send": "Send"
 }

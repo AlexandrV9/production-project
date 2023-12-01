@@ -1,7 +1,6 @@
 import {
   AnyAction,
   CombinedState,
-  Dispatch,
   EnhancedStore,
   Reducer,
   ReducersMapObject,
@@ -14,7 +13,9 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetailsSchema';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage/ui';
+import { AddNewCommentSchema } from 'features/addNewComment';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { AppDispatch } from './store';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -25,6 +26,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  addNewComment?: AddNewCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema; // counter | user | loginForm
@@ -41,14 +43,13 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 }
 
 export interface ThunkExtraArg {
-  api: AxiosInstance,
-  navigate?: (to: To, options?: NavigateOptions) => void,
+  api: AxiosInstance;
+  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {
   rejectWithValue: T;
   extra: ThunkExtraArg;
-  dispatch: Dispatch;
+  dispatch: AppDispatch;
   state: StateSchema;
-  
 }

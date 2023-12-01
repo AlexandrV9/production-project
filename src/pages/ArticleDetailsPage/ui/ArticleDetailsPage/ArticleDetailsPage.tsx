@@ -1,25 +1,29 @@
 import { ArticleDetails } from 'entities/Article';
-import { FC, memo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { FC, Suspense, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
 
-import { Text } from 'shared/ui/Text/Text';
-import { CommentList } from 'entities/Comment';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { Text } from 'shared/ui/Text/Text';
+import { CommentList } from 'entities/Comment';
+import { AddCommentForm } from 'features/addNewComment';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {
   articleDetailsCommentsReducer,
   getArticleComments,
 } from '../../model/slices/ArticleDetailsCommentsSlice';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+
 import cls from './ArticleDetailsPage.module.scss';
+import { Loader } from 'shared/ui/Loader/Loader';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -32,10 +36,17 @@ const reducers: ReducersList = {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation('article-details');
-  const { id } = useParams<{ id: string }>();
+  const { id = '1' } = useParams<{ id: string }>();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
   const dispatch = useAppDispatch();
+
+  const handleSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch],
+  );
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -54,6 +65,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text title={t('comments')} className={cls.commentTitle} />
+        <Suspense fallback={<Loader />}>
+          <AddCommentForm onSendComment={handleSendComment} />
+        </Suspense>
+
         <CommentList comments={comments} isLoading={commentsIsLoading} />
       </div>
     </DynamicModuleLoader>

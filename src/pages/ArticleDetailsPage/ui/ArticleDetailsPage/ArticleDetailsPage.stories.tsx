@@ -3,9 +3,6 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { testArticle } from 'entities/Article/model/consts/article';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
-// eslint-disable-next-line spaced-comment
-//https://storybook.js.org/addons/storybook-addon-react-router-v6
-
 export default {
   title: 'pages/ArticleDetailsPage',
   component: ArticleDetailsPage,

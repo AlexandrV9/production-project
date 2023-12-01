@@ -102,6 +102,42 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Hello",
+      "id": "WWnh60V"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "edewdw",
+      "id": "9JBaeku"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Привет",
+      "id": "Blt_0Ex"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "12312321312321312312312312312",
+      "id": "rAokuLX"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "11111",
+      "id": "wdMp4j4"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "1231231231",
+      "id": "EGVCsfA"
     }
   ],
   "users": [
@@ -120,14 +156,28 @@
       "avatar": "https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
-  "profile": {
-    "first": "Александр123",
-    "lastname": "Ващекин",
-    "age": 32,
-    "currency": "EUR",
-    "country": "Armenia",
-    "city": "Moscow",
-    "username": "admin21",
-    "avatar": "https://images.unsplash.com/photo-1698018376181-f52e2ecddc5d?auto=format&fit=crop&q=80&w=2832&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Александр22",
+      "lastname": "Ващекин",
+      "age": 32,
+      "currency": "EUR",
+      "country": "Armenia",
+      "city": "Moscow",
+      "username": "admin21",
+      "avatar": "https://images.unsplash.com/photo-1698018376181-f52e2ecddc5d?auto=format&fit=crop&q=80&w=2832&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "2",
+      "first": "dwed",
+      "lastname": "edew",
+      "age": 67,
+      "currency": "EUR",
+      "country": "Russis",
+      "city": "Moscow",
+      "username": "qweqw",
+      "avatar": "https://images.unsplash.com/photo-1698018376181-f52e2ecddc5d?auto=format&fit=crop&q=80&w=2832&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ]
 }
