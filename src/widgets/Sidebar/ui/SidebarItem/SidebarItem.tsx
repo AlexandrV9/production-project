@@ -7,7 +7,7 @@ import { getUserAuthData } from 'entities/User';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { SidebarItemType } from '../../model/item';
+import { SidebarItemType } from 'widgets/Sidebar/model/types/sidebar';
 
 import cls from './SidebarItem.module.scss';
 
