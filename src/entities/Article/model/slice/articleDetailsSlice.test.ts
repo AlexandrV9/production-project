@@ -1,4 +1,4 @@
-import { testArticle } from '../consts/article';
+import { testArticle } from '../consts/testArticle';
 import { articleDetailsReducer } from './articleDetailsSlice';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';

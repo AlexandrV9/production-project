@@ -4,7 +4,7 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from './articleDetails';
-import { testArticle } from '../consts/article';
+import { testArticle } from '../consts/testArticle';
 
 describe('articleDetailsSelectors', () => {
   test('should return article details data', () => {

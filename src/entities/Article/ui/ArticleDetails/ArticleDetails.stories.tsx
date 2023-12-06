@@ -8,7 +8,7 @@ import {
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-  title: 'entities/ArticleDetails',
+  title: 'entities/Article/ArticleDetails',
   component: ArticleDetails,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -26,6 +26,11 @@ const article: Article = {
   img: 'https://habrastorage.org/webt/gp/rx/uj/gprxuj2skxbmhitwrnlg1ibcalm.jpeg',
   views: 1022,
   createdAt: '26.10.2023',
+  user: {
+    id: "1",
+    username: "admin",
+    avatar: "https://images.unsplash.com/photo-1606220838315-056192d5e927?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
   type: [ArticleType.IT],
   blocks: [
     {

@@ -2,7 +2,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 
 import { StateSchema } from 'app/providers/StoreProvider';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { testArticle } from '../../consts/article';
+import { testArticle } from '../../consts/testArticle';
 import { fetchArticleById } from './fetchArticleById';
 
 const data = testArticle;
@@ -22,10 +22,9 @@ describe('fetchArticleById.test', () => {
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));
     const result = await thunk.callThunk('1');
 
-
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
-    expect(thunk.api.get).toHaveBeenCalledWith("articles/1")
+    expect(thunk.api.get).toHaveBeenCalledWith('articles/1');
     expect(result.payload).toEqual(data);
   });
 
