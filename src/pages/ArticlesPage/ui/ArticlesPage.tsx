@@ -19,9 +19,8 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import {
   getArticlePageError,
   getArticlePageIsLoading,
-  getArticlePageView,
+  getArticlePageView
 } from '../model/selectors/articlePageSelectors';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import {
   articlePageActions,
   articlePageReducer,
@@ -29,6 +28,8 @@ import {
 } from '../model/slices/articlePageSlice';
 
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
+
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -63,8 +64,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlePageActions.initState());
-    dispatch(fetchArticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   });
 
   return (

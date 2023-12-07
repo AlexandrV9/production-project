@@ -9,7 +9,7 @@ import {
 import { AxiosInstance } from 'axios';
 import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
-import { NavigateOptions, To } from 'react-router-dom';
+import { Location, NavigateOptions, To } from 'react-router-dom';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetailsSchema';
@@ -47,6 +47,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 export interface ThunkExtraArg {
   api: AxiosInstance;
   navigate?: (to: To, options?: NavigateOptions) => void;
+  location?: Location;
 }
 
 export interface ThunkConfig<T> {

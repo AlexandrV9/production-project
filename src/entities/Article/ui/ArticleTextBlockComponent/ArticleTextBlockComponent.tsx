@@ -21,7 +21,7 @@ export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> =
       >
         {block.title && <Text title={block.type} className={cls.title} />}
         {block.paragraphs.map((paragraph) => (
-          <Text key={paragraph} text={paragraph} className={cls.paragraph}/>
+          <Text key={paragraph} text={paragraph} className={cls.paragraph} />
         ))}
       </div>
     );

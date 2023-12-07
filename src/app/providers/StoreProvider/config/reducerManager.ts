@@ -7,7 +7,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
   let combinedReducer = combineReducers(reducers);
 
   let keysToRemove: Array<StateSchemaKey> = [];  // хранит в себе название редьюсеров, которые мы хотим удалить
-  // Т.е хотим удалить reducerLoginForm, то добавляем его в этот массив
+  // Т.е если хотим удалить reducerLoginForm, то добавляем его в этот массив
 
   return {
     getReducerMap: () => reducers,  // просто возвращает редьюсеры

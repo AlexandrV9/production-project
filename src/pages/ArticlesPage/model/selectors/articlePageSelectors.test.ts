@@ -80,6 +80,15 @@ describe('articlePageSelectors', () => {
     expect(getArticlePageLimit(state as StateSchema)).toBe(10);
   });
 
+  test('should return article page _inited', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlePage: {
+        _inited: true,
+      },
+    };
+    expect(getArticlePageLimit(state as StateSchema)).toBe(true);
+  });
+
   test('should work with empty state isLoading', () => {
     const state: DeepPartial<StateSchema> = {
       articlePage: {},

@@ -37,6 +37,7 @@ export const CommentList: FC<CommentListProps> = memo((props) => {
             isLoading={isLoading}
             comment={comment}
             className={cls.comment}
+            key={comment.id}
           />
         ))
       ) : (

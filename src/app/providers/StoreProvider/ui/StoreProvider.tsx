@@ -1,8 +1,9 @@
 import { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 
+import { useLocation } from 'shared/lib/hooks/useLocation';
+import { useNavigate } from 'shared/lib/hooks/useNavigate';
 import { createReduxStore } from '../config/store';
 import { StateSchema } from '../config/StateSchema';
 
@@ -16,11 +17,13 @@ const StoreProvider: FC<StoreProviderProps> = (props) => {
   const { children, initialState, asyncReducers } = props;
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const store = createReduxStore(
     initialState as StateSchema,
     asyncReducers as ReducersMapObject<StateSchema>,
-    navigate
+    navigate,
+    location
   );
 
   return <Provider store={store}>{children}</Provider>;
