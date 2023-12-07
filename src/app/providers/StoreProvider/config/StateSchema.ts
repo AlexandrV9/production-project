@@ -15,6 +15,7 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetailsSchema';
 import { AddNewCommentSchema } from 'features/addNewComment';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { AppDispatch } from './store';
 
 export interface StateSchema {
@@ -27,6 +28,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addNewComment?: AddNewCommentSchema;
+  articlePage?: ArticlePageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema; // counter | user | loginForm
