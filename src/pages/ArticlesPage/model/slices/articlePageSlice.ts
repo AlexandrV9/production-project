@@ -23,7 +23,7 @@ const articlePageSlice = createSlice({
     isLoading: false,
     ids: [],
     entities: {},
-    view: ArticleView.GRID,
+    view: "GRID" as ArticleView,
     page: 1,
     hasMore: true, // ideal = get front backend
   }),
