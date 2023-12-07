@@ -1,27 +1,34 @@
 import { FC, memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import {
+  ArticleList,
+  ArticleView,
+  ArticleViewSelector,
+} from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import {
+  getArticlePageError,
+  getArticlePageIsLoading,
+  getArticlePageView,
+} from '../model/selectors/articlePageSelectors';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import {
   articlePageActions,
   articlePageReducer,
   getArticles,
 } from '../model/slices/articlePageSlice';
-import {
-  getArticlePageError,
-  getArticlePageIsLoading,
-  getArticlePageView,
-} from '../model/selectors/articlePageSelectors';
 
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -34,7 +41,7 @@ const reducers: ReducersList = {
 
 const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const { className } = props;
-  const { t } = useTranslation('');
+  const { t } = useTranslation('articles-page');
   const dispatch = useAppDispatch();
 
   const articles = useSelector(getArticles.selectAll);
@@ -42,25 +49,43 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
 
-  const handleChangeView = useCallback((view: ArticleView) => {
-    dispatch(articlePageActions.setView(view))
-  },[dispatch])
+  const handleChangeView = useCallback(
+    (view: ArticleView) => {
+      dispatch(articlePageActions.setView(view));
+    },
+    [dispatch],
+  );
+
+  const handleLoadNextPart = useCallback(() => {
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchNextArticlesPage());
+    }
+  }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
-    dispatch(articlePageActions.initState())
+    dispatch(articlePageActions.initState());
+    dispatch(fetchArticlesList({ page: 1 }));
   });
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.ArticlesPage, {}, [className])}>
-        <ArticleViewSelector view={view} onViewClick={handleChangeView}/>
-        <ArticleList
-          isLoading={isLoading}
-          articles={articles}
-          view={view}
-        />
-      </div>
+      <Page
+        onScrollEnd={handleLoadNextPart}
+        className={classNames(cls.ArticlesPage, {}, [className])}
+      >
+        {error ? (
+          <Text text={t('Failed to load data')} theme={TextTheme.ERROR} />
+        ) : (
+          <>
+            <ArticleViewSelector view={view} onViewClick={handleChangeView} />
+            <ArticleList
+              isLoading={isLoading}
+              articles={articles}
+              view={view}
+            />
+          </>
+        )}
+      </Page>
     </DynamicModuleLoader>
   );
 };

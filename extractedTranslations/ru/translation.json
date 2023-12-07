@@ -1,5 +1,7 @@
 {
   "": "",
+  "'Не получилось загрузить данные": "'Не получилось загрузить данные",
+  "'Не получилось загрузить данные'": "'Не получилось загрузить данные'",
   "Article not": "Article not",
   "Article not found": "Article not found",
   "Authorization form": "Authorization form",
@@ -11,6 +13,7 @@
   "Enter pass": "Enter pass",
   "Enter password": "Enter password",
   "Enter username": "Enter username",
+  "Failed to load data": "Failed to load data",
   "First and last name are required": "First and last name are required",
   "Incorrect age": "Incorrect age",
   "Invalid region": "Invalid region",
@@ -72,6 +75,7 @@
   "Главная страницdа": "Главная страницdа",
   "Главная страница": "Главная страница",
   "К": "К",
+  "Не получилось загрузить данные": "Не получилось загрузить данные",
   "О сайте": "О сайте",
   "О сайте123123": "О сайте123123",
   "Обновить страницу": "Обновить страницу",

@@ -29,6 +29,18 @@ describe('articlePageSlice.test', () => {
     ).toEqual({ view: ArticleView.GRID });
   });
 
+  test('test set page = 2', () => {
+    const state: DeepPartial<ArticlePageSchema> = {
+      page: 1
+    };
+    expect(
+      articlePageReducer(
+        state as ArticlePageSchema,
+        articlePageActions.setPage(2),
+      ),
+    ).toEqual({ page: 2 });
+  });
+
   test('test get article list service pending', () => {
     const state: DeepPartial<ArticlePageSchema> = {
       isLoading: false,
@@ -41,14 +53,20 @@ describe('articlePageSlice.test', () => {
   test('test get article list service fulfilled', () => {
     const state: DeepPartial<ArticlePageSchema> = {
       isLoading: true,
+      ids: [],
+      entities: {},
+      hasMore: true,
     };
     expect(
       articlePageReducer(
         state as ArticlePageSchema,
-        fetchArticlesList.fulfilled([testArticle], ''),
+        fetchArticlesList.fulfilled([testArticle], '', {
+          page: 1,
+        }),
       ),
     ).toEqual({
       isLoading: false,
+      hasMore: true,
       ids: ['1'],
       entities: {
         '1': {
