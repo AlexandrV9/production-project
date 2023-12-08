@@ -14,12 +14,12 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import {
   getArticlePageError,
   getArticlePageIsLoading,
-  getArticlePageView
+  getArticlePageView,
 } from '../model/selectors/articlePageSelectors';
 import {
   articlePageActions,

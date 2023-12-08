@@ -17,7 +17,7 @@ interface DynamicModuleLoaderProps {
 // удаляем редьюсер
 
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
-  const { children, reducers, removeAfterUnmount } = props;
+  const { children, reducers, removeAfterUnmount = false } = props;
 
   const dispatch = useDispatch();
 

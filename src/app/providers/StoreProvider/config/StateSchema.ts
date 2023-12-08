@@ -5,22 +5,24 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
-
 import { AxiosInstance } from 'axios';
+import { Location, NavigateOptions, To } from 'react-router-dom';
+
+import { UserSchema } from 'entities/User';
 import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
-import { Location, NavigateOptions, To } from 'react-router-dom';
-import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
-import { ArticleDetailsSchema } from 'entities/Article/model/types/articleDetailsSchema';
+import { ScrollSaveSchema } from 'features/ScrollSave';
+import { ArticlePageSchema } from 'pages/ArticlesPage';
+import { ArticleDetailsSchema } from 'entities/Article';
 import { AddNewCommentSchema } from 'features/addNewComment';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
-import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { AppDispatch } from './store';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollSave: ScrollSaveSchema;
 
   // Асинхронные редьюсеры
   loginForm?: LoginSchema;
