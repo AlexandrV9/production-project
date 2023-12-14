@@ -1,4 +1,4 @@
-import { ArticlesPageAsync } from './ui/ArticlesPage.async';
+import { ArticlesPageAsync } from './ui/ArticlesPage/ArticlesPage.async';
 import {
   articlePageActions,
   articlePageReducer,
@@ -9,5 +9,5 @@ export {
   ArticlesPageAsync as ArticlesPage,
   articlePageActions,
   articlePageReducer,
-  ArticlePageSchema
+  ArticlePageSchema,
 };

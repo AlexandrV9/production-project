@@ -26,13 +26,14 @@ describe('initArticlesPage.test', () => {
         entities: {},
         limit: 5,
         isLoading: false,
-        hasMore: true
+        hasMore: true,
+        type: "ALL"
       }
     });
     
-    await thunk.callThunk();
+    await thunk.callThunk(new URLSearchParams());
 
     expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 1 })
+    expect(fetchArticlesList).toHaveBeenCalledWith({})
   });
 });

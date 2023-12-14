@@ -1,0 +1,19 @@
+{
+  "cancel": "cancel",
+  "city": "city",
+  "data_not_provided": "data_not_provided",
+  "edit": "edit",
+  "erroTextProfileCard": "erroTextProfileCard",
+  "first_and_last_name_are_required": "first_and_last_name_are_required",
+  "incorrect_age": "incorrect_age",
+  "invalid_region": "invalid_region",
+  "link_avatar": "link_avatar",
+  "profile": "profile",
+  "save": "save",
+  "server_error_when_saving": "server_error_when_saving",
+  "textUpdatePage": "textUpdatePage",
+  "your_age": "your_age",
+  "your_last_name": "your_last_name",
+  "your_name": "your_name",
+  "your_username": "your_username"
+}

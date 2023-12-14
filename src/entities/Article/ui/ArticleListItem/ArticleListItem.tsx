@@ -1,16 +1,18 @@
-import { FC, memo, useCallback } from 'react';
+import { FC, memo, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Icon } from 'shared/ui/Icon/Icon';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextAlign } from 'shared/ui/Text/Text';
 import { Card } from 'shared/ui/Card/Card';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import IconEye from 'shared/assets/icons/eye-20-20.svg';
+import Error from 'shared/assets/icons/error-20-20.svg';
 
 import {
   Article,
@@ -33,6 +35,9 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
 
   const { t } = useTranslation('article-list');
   const navigate = useNavigate();
+
+  const [isErrorImg, setIsErrorImg] = useState(false);
+  const [isLoadedImg, setIsLoadedImg] = useState(false);
 
   const handleOpenArticle = useCallback(() => {
     navigate(`${RoutePath.article_details}/${article.id}`);
@@ -69,7 +74,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
             <ArticleTextBlockComponent
               block={textBlock}
               className={cls.textBlock}
-            /> 
+            />
           )}
           <div className={cls.footer}>
             <Button theme={ButtonTheme.OUTLINE} onClick={handleOpenArticle}>
@@ -82,13 +87,50 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
     );
   }
 
+  const handleLoadImg = () => {
+    setIsLoadedImg(true);
+  };
+
+  const handleErrorLoadImg = () => {
+    setIsErrorImg(true);
+    setIsLoadedImg(false);
+  };
+
+  const showAddInfo = () => {
+    if (isErrorImg) {
+      return (
+        <div className={cls.loadImageWrapper}>
+          <Icon Svg={Error} w={40} h={40} className={cls.errorIcon} />
+          <Text text={t('Loading error image')} align={TextAlign.CENTER} />
+        </div>
+      );
+    }
+
+    if (!isLoadedImg) {
+      return (
+        <div className={cls.loadImageWrapper}>
+          <Loader />
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   return (
     <div
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
       <Card onClick={handleOpenArticle}>
         <div className={cls.imageWrapper}>
-          <img src={article.img} className={cls.img} alt={article.title} />
+          {showAddInfo()}
+          <img
+            src={article.img}
+            className={classNames(cls.img, { [cls.notLoaded]: !isLoadedImg })}
+            alt={article.title}
+            onLoad={handleLoadImg}
+            onError={handleErrorLoadImg}
+          />
           <Text text={article.createdAt} className={cls.date} />
         </div>
         <div className={cls.infoWrapper}>

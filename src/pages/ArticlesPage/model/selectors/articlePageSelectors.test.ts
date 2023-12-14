@@ -1,13 +1,18 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 
 import { testArticle } from 'entities/Article/model/consts/testArticle';
-import { ArticleView } from '../../../../entities/Article/model/types/article';
+import { ArticleSortField, ArticleType, ArticleView } from '../../../../entities/Article/model/types/article';
 import {
   getArticlePageError,
   getArticlePageHasMore,
+  getArticlePageInited,
   getArticlePageIsLoading,
   getArticlePageLimit,
   getArticlePageNum,
+  getArticlePageOrder,
+  getArticlePageSearch,
+  getArticlePageSort,
+  getArticlePageType,
   getArticlePageView,
 } from './articlePageSelectors';
 import { getArticles } from '../slices/articlePageSlice';
@@ -86,7 +91,7 @@ describe('articlePageSelectors', () => {
         _inited: true,
       },
     };
-    expect(getArticlePageLimit(state as StateSchema)).toBe(true);
+    expect(getArticlePageInited(state as StateSchema)).toBe(true);
   });
 
   test('should work with empty state isLoading', () => {
@@ -94,5 +99,41 @@ describe('articlePageSelectors', () => {
       articlePage: {},
     };
     expect(getArticlePageIsLoading(state as StateSchema)).toBe(false);
+  });
+
+  test('should return article page order', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlePage: {
+        order: "asc",
+      },
+    };
+    expect(getArticlePageOrder(state as StateSchema)).toBe("asc");
+  });
+
+  test('should return article page sort', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlePage: {
+        sort: ArticleSortField.CREATED,
+      },
+    };
+    expect(getArticlePageSort(state as StateSchema)).toBe(ArticleSortField.CREATED);
+  });
+
+  test('should return article page search', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlePage: {
+        search: "123",
+      },
+    };
+    expect(getArticlePageSearch(state as StateSchema)).toBe("123");
+  });
+
+  test('should return article page type', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlePage: {
+        type: ArticleType.IT,
+      },
+    };
+    expect(getArticlePageType(state as StateSchema)).toBe(ArticleType.IT);
   });
 });

@@ -1,3 +1,9 @@
 {
-  "Read more": "Читать далее"
+  "Read more": "Читать далее",
+  "Loading error image": "Ошибка загрузки картинки",
+  "No articles found": "Статьи не найдены",
+  "ALL": "Все",
+  "IT": "Айти",
+  "SCIENCE": "Наука",
+  "ECONOMICS": "Экономика"
 }

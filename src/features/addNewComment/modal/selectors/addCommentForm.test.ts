@@ -18,7 +18,7 @@ describe('addCommentForm.test', () => {
     const state: DeepPartial<StateSchema> = {
       addNewComment: {},
     };
-    expect(getAddCommentFormText(state as StateSchema)).toEqual(undefined);
+    expect(getAddCommentFormText(state as StateSchema)).toEqual("");
   });
 
   test('getAddCommentFormError', () => {
@@ -34,6 +34,6 @@ describe('addCommentForm.test', () => {
     const state: DeepPartial<StateSchema> = {
       addNewComment: {},
     };
-    expect(getAddCommentFormError(state as StateSchema)).toEqual(undefined);
+    expect(getAddCommentFormError(state as StateSchema)).toEqual("");
   });
 });

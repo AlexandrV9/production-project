@@ -1,4 +1,5 @@
 import { Story, StoryContext } from '@storybook/react';
+import { RouterUtils } from 'app/providers/router';
 import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
 
 export const RouterDecorator = (
@@ -6,16 +7,22 @@ export const RouterDecorator = (
   { parameters: { router } }: StoryContext,
 ) => {
   if (!router) {
-    return <BrowserRouter>{story()}</BrowserRouter>;
+    return (
+      <BrowserRouter>
+        <RouterUtils>{story()}</RouterUtils>
+      </BrowserRouter>
+    );
   }
 
   const { path, route } = router;
 
   return (
     <MemoryRouter initialEntries={[encodeURI(route)]}>
-      <Routes>
-        <Route path={path} element={story()} />
-      </Routes>
+      <RouterUtils>
+        <Routes>
+          <Route path={path} element={story()} />
+        </Routes>
+      </RouterUtils>
     </MemoryRouter>
   );
 };

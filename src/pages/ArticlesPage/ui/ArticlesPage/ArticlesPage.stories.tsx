@@ -5,7 +5,7 @@ import { ArticleView } from 'entities/Article';
 import ArticlesPage from './ArticlesPage';
 
 export default {
-  title: 'pages/ArticlesPage',
+  title: 'pages/Article/ArticlesPage',
   component: ArticlesPage,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -39,7 +39,7 @@ NormalGrid.decorators = [
   }),
 ];
 
-export const NormalList= Template.bind({});
+export const NormalList = Template.bind({});
 NormalList.args = {};
 NormalList.decorators = [
   StoreDecorator({
@@ -76,7 +76,7 @@ LoadingGrid.decorators = [
   }),
 ];
 
-export const LoadingList= Template.bind({});
+export const LoadingList = Template.bind({});
 LoadingList.args = {};
 LoadingList.decorators = [
   StoreDecorator({
@@ -103,4 +103,3 @@ Error.decorators = [
     },
   }),
 ];
-

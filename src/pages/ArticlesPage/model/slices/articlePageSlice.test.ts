@@ -1,5 +1,5 @@
 import { testArticle } from 'entities/Article/model/consts/testArticle';
-import { ArticleView } from '../../../../entities/Article/model/types/article';
+import { ArticleSortField, ArticleType, ArticleView } from '../../../../entities/Article/model/types/article';
 import { articlePageActions, articlePageReducer } from './articlePageSlice';
 import { ArticlePageSchema } from '../types/articlePageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
@@ -31,7 +31,7 @@ describe('articlePageSlice.test', () => {
 
   test('test set page = 2', () => {
     const state: DeepPartial<ArticlePageSchema> = {
-      page: 1
+      page: 1,
     };
     expect(
       articlePageReducer(
@@ -40,6 +40,67 @@ describe('articlePageSlice.test', () => {
       ),
     ).toEqual({ page: 2 });
   });
+
+  test('test set view = LIST', () => {
+    const state: DeepPartial<ArticlePageSchema> = {
+      view: ArticleView.GRID,
+    };
+    expect(
+      articlePageReducer(
+        state as ArticlePageSchema,
+        articlePageActions.setView(ArticleView.LIST),
+      ),
+    ).toEqual({ view: ArticleView.LIST });
+  });
+
+  test('test set order = desc', () => {
+    const state: DeepPartial<ArticlePageSchema> = {
+      order: "asc",
+    };
+    expect(
+      articlePageReducer(
+        state as ArticlePageSchema,
+        articlePageActions.setOrder("desc"),
+      ),
+    ).toEqual({ order: "desc" });
+  });
+
+  test('test set sort = TITLE', () => {
+    const state: DeepPartial<ArticlePageSchema> = {
+      sort: ArticleSortField.CREATED,
+    };
+    expect(
+      articlePageReducer(
+        state as ArticlePageSchema,
+        articlePageActions.setSort(ArticleSortField.TITLE),
+      ),
+    ).toEqual({ sort: ArticleSortField.TITLE });
+  });
+
+  test('test set search = dew', () => {
+    const state: DeepPartial<ArticlePageSchema> = {
+      search: "",
+    };
+    expect(
+      articlePageReducer(
+        state as ArticlePageSchema,
+        articlePageActions.setSearch("dew"),
+      ),
+    ).toEqual({ search: "dew" });
+  });
+
+  test('test set type = dew', () => {
+    const state: DeepPartial<ArticlePageSchema> = {
+      type: ArticleType.ALL,
+    };
+    expect(
+      articlePageReducer(
+        state as ArticlePageSchema,
+        articlePageActions.setType(ArticleType.IT),
+      ),
+    ).toEqual({ type: ArticleType.IT });
+  });
+
 
   test('test get article list service pending', () => {
     const state: DeepPartial<ArticlePageSchema> = {
@@ -55,18 +116,16 @@ describe('articlePageSlice.test', () => {
       isLoading: true,
       ids: [],
       entities: {},
-      hasMore: true,
+      hasMore: false,
     };
     expect(
       articlePageReducer(
         state as ArticlePageSchema,
-        fetchArticlesList.fulfilled([testArticle], '', {
-          page: 1,
-        }),
+        fetchArticlesList.fulfilled([testArticle], '', {}),
       ),
     ).toEqual({
       isLoading: false,
-      hasMore: true,
+      hasMore: false,
       ids: ['1'],
       entities: {
         '1': {

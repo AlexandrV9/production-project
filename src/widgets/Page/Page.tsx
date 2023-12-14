@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle';
-import { useAppLocation } from 'shared/lib/hooks/useLocation';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
 import { getSaveScrollByPath, scrollSaveActions } from 'features/ScrollSave';
 import { useInitialLayoutEffect } from 'shared/lib/hooks/useInitialLayoutEffect';
+import { useAppLocation } from 'shared/lib/hooks/useAppLocation';
 
 import cls from './Page.module.scss';
 
@@ -61,7 +61,7 @@ export const Page: FC<PageProps> = (props) => {
       onScroll={onScroll}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd ? <div ref={triggerRef} className={cls.trigger}/> : null}
     </section>
   );
 };

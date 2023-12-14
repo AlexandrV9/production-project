@@ -1,3 +1,11 @@
 {
-  "Failed to load data": "Failed to load data"
+  "Failed to load data": "Failed to load data",
+  "Sort by": "Sort by",
+  "Search": "Search",
+  "increase": "increase",
+  "by": "by",
+  "decrease": "decrease",
+  "creation date": "creation date",
+  "title": "title",
+  "views": "views"
 }
