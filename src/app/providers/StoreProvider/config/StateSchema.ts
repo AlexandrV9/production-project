@@ -8,15 +8,16 @@ import {
 import { AxiosInstance } from 'axios';
 import { Location, NavigateOptions, To } from 'react-router-dom';
 
-import { UserSchema } from 'entities/User';
+import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
+import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ScrollSaveSchema } from 'features/ScrollSave';
-import { ArticlePageSchema } from 'pages/ArticlesPage';
-import { ArticleDetailsSchema } from 'entities/Article';
 import { AddNewCommentSchema } from 'features/addNewComment';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { ArticlePageSchema } from 'pages/ArticlesPage';
+
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { AppDispatch } from './store';
 
 export interface StateSchema {
@@ -27,10 +28,10 @@ export interface StateSchema {
   // Асинхронные редьюсеры
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
-  articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
   addNewComment?: AddNewCommentSchema;
   articlePage?: ArticlePageSchema;
+  articleDetails?: ArticleDetailsSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema; // counter | user | loginForm

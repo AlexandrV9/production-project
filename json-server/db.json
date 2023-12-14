@@ -4,7 +4,7 @@
       "id": "1",
       "title": "json-server",
       "userId": "1"
-    },  
+    },
     {
       "id": "2",
       "title": "json-server",
@@ -589,6 +589,12 @@
       "userId": "1",
       "text": "34123123",
       "id": "Lax-2vc"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "wedwd12",
+      "id": "KgWg4PI"
     }
   ],
   "users": [

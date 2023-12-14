@@ -26,3 +26,18 @@ body {
   overflow-y: auto;
   width: 100%;
 }
+
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  width: var(--card-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--inverted-bg-color);
+  border-radius: 20px;
+  border: 2px solid var(--primary-color);
+}
