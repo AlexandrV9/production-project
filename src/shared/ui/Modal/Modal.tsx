@@ -10,7 +10,6 @@ import {
 } from 'react';
 
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
-import { useTheme } from 'app/providers/ThemeProvider';
 
 import cls from './Modal.module.scss';
 
@@ -55,10 +54,10 @@ const Modal: FC<ModalProps> = (props) => {
   );
 
   useEffect(() => {
-    if(isOpen) {
-      setIsMounted(true)
+    if (isOpen) {
+      setIsMounted(true);
     }
-  },[isOpen])
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -75,7 +74,7 @@ const Modal: FC<ModalProps> = (props) => {
     [cls.closing]: isClosing,
   };
 
-  if(lazy && !isMounted) {
+  if (lazy && !isMounted) {
     return null;
   }
 

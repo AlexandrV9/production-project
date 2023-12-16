@@ -14,6 +14,7 @@ export const fetchArticleRecommendations = createAsyncThunk<
     const res = await extra.api.get<Article[]>('/articles', {
       params: {
         _limit: 4,
+        _expand: 'user',
       },
     });
     const { data } = res;
