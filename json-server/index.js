@@ -44,7 +44,7 @@ server.post('/login', (req, res) => {
 
 // eslint-disable-next-line consistent-return
 server.use(async (req, res, next) => {
-  if (!req.headers.authorization) {
+  if (!req.headers.Authorization) {
     return res.status(403).json({ message: 'Auth error' });
   }
   next();
