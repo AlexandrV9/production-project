@@ -1,4 +1,10 @@
-import { FC, HTMLAttributeAnchorTarget, memo, useState } from 'react';
+import {
+  FC,
+  HTMLAttributeAnchorTarget,
+  memo,
+  useCallback,
+  useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -10,6 +16,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstorage';
 
 import IconEye from 'shared/assets/icons/eye-20-20.svg';
 import Error from 'shared/assets/icons/error-20-20.svg';
@@ -29,10 +36,11 @@ interface ArticleListItemProps {
   article: Article;
   view: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+  index?: number;
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
-  const { className, article, view, target } = props;
+  const { className, article, view, target, index } = props;
 
   const { t } = useTranslation('article-list');
 
@@ -47,6 +55,11 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
       <Icon Svg={IconEye} />
     </>
   );
+
+  const handleButtonClick = useCallback(() => {
+    console.log("handleButtonClick")
+    sessionStorage.setItem(ARTICLE_LIST_ITEM_INDEX, JSON.stringify(index));
+  }, [index]);
 
   if (view === ArticleView.LIST) {
     const textBlock = article.blocks.find(
@@ -77,7 +90,9 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
               to={`${RoutePath.article_details}/${article.id}`}
               target={target}
             >
-              <Button theme={ButtonTheme.OUTLINE}>{t('Read more')}</Button>
+              <Button theme={ButtonTheme.OUTLINE} onClick={handleButtonClick}>
+                {t('Read more')}
+              </Button>
             </AppLink>
             {views}
           </div>
@@ -121,6 +136,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
       target={target}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
       to={`${RoutePath.article_details}/${article.id}`}
+      onClick={handleButtonClick}
     >
       <Card>
         <div className={cls.imageWrapper}>

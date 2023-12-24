@@ -6,33 +6,29 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Icon } from 'shared/ui/Icon/Icon';
 
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 
-import { Icon } from 'shared/ui/Icon/Icon';
-import {
-  ArticleBlock,
-  ArticleBlockType,
-} from 'entities/Article/model/types/article';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
-
-import cls from './ArticleDetails.module.scss';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -53,7 +49,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
   const error = useSelector(getArticleDetailsError);
 
   useEffect(() => {
-    if(__PROJECT__ !== "storybook") {
+    if (__PROJECT__ !== 'storybook') {
       dispatch(fetchArticleById(id));
     }
   }, [dispatch, id]);
@@ -61,11 +57,29 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
     case ArticleBlockType.CODE:
-      return <ArticleCodeBlockComponent className={cls.block} block={block} key={block.id}/>;
+      return (
+        <ArticleCodeBlockComponent
+          className={cls.block}
+          block={block}
+          key={block.id}
+        />
+      );
     case ArticleBlockType.IMAGE:
-      return <ArticleImageBlockComponent className={cls.block} block={block} key={block.id}/>;
+      return (
+        <ArticleImageBlockComponent
+          className={cls.block}
+          block={block}
+          key={block.id}
+        />
+      );
     case ArticleBlockType.TEXT:
-      return <ArticleTextBlockComponent className={cls.block} block={block} key={block.id}/>;
+      return (
+        <ArticleTextBlockComponent
+          className={cls.block}
+          block={block}
+          key={block.id}
+        />
+      );
     default:
       return null;
     }

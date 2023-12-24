@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Article, ArticleView } from 'entities/Article/model/types/article';
-import { testArticle } from 'entities/Article/model/consts/testArticle';
+
 import { ArticleList } from './ArticleList';
+import { Article, ArticleView } from '../../model/types/article';
+import { testArticle } from '../../model/consts/testArticle';
 
 const listArticle = Array.from({ length: 3 })
   .fill(0)
