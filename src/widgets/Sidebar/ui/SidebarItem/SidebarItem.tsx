@@ -8,7 +8,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import { SidebarItemType } from '../../model/types/sidebar';
 
-
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
@@ -16,7 +15,7 @@ interface SidebarItemProps {
   collapsed?: boolean;
 }
 
-const SidebarItem: FC<SidebarItemProps> = memo((props) => {
+export const SidebarItem: FC<SidebarItemProps> = memo((props) => {
   const { item, collapsed } = props;
 
   const isAuth = useSelector(getUserAuthData);
@@ -40,5 +39,3 @@ const SidebarItem: FC<SidebarItemProps> = memo((props) => {
     </AppLink>
   );
 });
-
-export default SidebarItem;

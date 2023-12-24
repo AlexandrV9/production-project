@@ -15,6 +15,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import { VStack } from 'shared/ui/Stack';
 import { Page } from 'widgets/Page/Page';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
 import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
@@ -72,29 +73,30 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails id={id} />
-        <Text
-          size={TextSize.L}
-          title={t('Recommend')}
-          className={cls.commentTitle}
-        />
-        <ArticleList
-          articles={recommendations}
-          isLoading={recommendationsIsLoading}
-          className={cls.recommendations}
-          target="_blank"
-        />
-        <Text
-          size={TextSize.L}
-          title={t('comments')}
-          className={cls.commentTitle}
-        />
-        <Suspense fallback={<Loader />}>
-          <AddCommentForm onSendComment={handleSendComment} />
-        </Suspense>
-
-        <CommentList comments={comments} isLoading={commentsIsLoading} />
+        <VStack gap='16' max>
+          <ArticleDetailsPageHeader />
+          <ArticleDetails id={id} />
+          <Text
+            size={TextSize.L}
+            title={t('Recommend')}
+            className={cls.commentTitle}
+          />
+          <ArticleList
+            articles={recommendations}
+            isLoading={recommendationsIsLoading}
+            className={cls.recommendations}
+            target='_blank'
+          />
+          <Text
+            size={TextSize.L}
+            title={t('comments')}
+            className={cls.commentTitle}
+          />
+          <Suspense fallback={<Loader />}>
+            <AddCommentForm onSendComment={handleSendComment} />
+          </Suspense>
+          <CommentList comments={comments} isLoading={commentsIsLoading} />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

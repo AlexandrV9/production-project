@@ -14,13 +14,13 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
+import { VStack, HStack } from 'shared/ui/Stack';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
 
-import cls from './EditableProfileCard.module.scss';
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileData } from '../model/selectors/getProfileData/getProfileData';
 
@@ -119,40 +119,32 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = () => {
   );
 
   return (
-    <div className={cls.EditableProfileCard}>
-      <div className={cls.header}>
+    <VStack gap='16' max>
+      <HStack justify='between' max>
         <Text title={t('profile')} />
         {canEdit && (
-          <div className={cls.btnsWrapper}>
+          <div>
             {readonly ? (
-              <Button
-                theme={ButtonTheme.OUTLINE}
-                className={cls.editBtn}
-                onClick={handleEdit}
-              >
+              <Button theme={ButtonTheme.OUTLINE} onClick={handleEdit}>
                 {t('edit')}
               </Button>
             ) : (
-              <>
+              <HStack gap='8'>
                 <Button
                   theme={ButtonTheme.OUTLINE_RED}
-                  className={cls.cancelEditeBtn}
                   onClick={handleCancelEdite}
                 >
                   {t('cancel')}
                 </Button>
-                <Button
-                  theme={ButtonTheme.OUTLINE}
-                  className={cls.saveBtn}
-                  onClick={handleSave}
-                >
+                <Button theme={ButtonTheme.OUTLINE} onClick={handleSave}>
                   {t('save')}
                 </Button>
-              </>
+              </HStack>
             )}
           </div>
         )}
-      </div>
+      </HStack>
+
       {validateErrors?.length &&
         validateErrors.map((err) => (
           <Text
@@ -175,6 +167,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = () => {
         onChangeCurrency={handleChangeCurrency}
         onChangeCountry={handleChangeCountry}
       />
-    </div>
+    </VStack>
   );
 };

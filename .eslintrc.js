@@ -48,7 +48,15 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to', 'target'],
+        ignoreAttribute: [
+          'data-testid',
+          'to',
+          'target',
+          'align',
+          'justify',
+          'direction',
+          'gap',
+        ],
       },
     ],
     'max-len': [
@@ -63,7 +71,7 @@ module.exports = {
     'react/prop-types': 'off',
     'no-undef': 'off',
     'react/no-array-index-key': 'warn',
-    'alex-plugin-fsd/path-checker': "error"
+    'alex-plugin-fsd/path-checker': 'error',
   },
   globals: {
     __IS_DEV__: true,

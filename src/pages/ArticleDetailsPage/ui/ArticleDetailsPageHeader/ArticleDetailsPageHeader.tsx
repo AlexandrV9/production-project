@@ -6,11 +6,10 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { getArticleDetailsData } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppNavigate } from 'shared/lib/hooks/useAppNavigate';
+import { HStack } from 'shared/ui/Stack';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 import { getCanEditArticle } from '../../model/selectors/article';
-
-import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -35,8 +34,10 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
     }, [article?.id, navigate]);
 
     return (
-      <div
-        className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}
+      <HStack
+        className={classNames("", {}, [className])}
+        justify='between'
+        max
       >
         <Button theme={ButtonTheme.OUTLINE} onClick={handleBackToList}>
           {t('Back to list')}
@@ -44,13 +45,12 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
         {canEdit && (
           <Button
             theme={ButtonTheme.OUTLINE}
-            className={cls.editBtn}
             onClick={handleGoToEditArticle}
           >
             {t('Edit')}
           </Button>
         )}
-      </div>
+      </HStack>
     );
   },
 );

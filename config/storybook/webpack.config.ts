@@ -9,6 +9,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     html: '',
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
+    locales: path.resolve(__dirname, '..', '..', 'public', 'locales'),
+    buildLocales: path.resolve(__dirname, '..', '..', 'build', 'locales'),
   };
   config!.resolve!.modules!.push(paths.src);
   config!.resolve!.extensions!.push('.ts', '.tsx');
@@ -31,12 +33,14 @@ export default ({ config }: { config: webpack.Configuration }) => {
       use: ['@svgr/webpack'],
     });
   }
-  
-  config!.plugins!.push(new DefinePlugin({
-    __API__: JSON.stringify(""),
-    __IS_DEV__: JSON.stringify(true),
-    __PROJECT__: JSON.stringify("storybook"),
-  }));
+
+  config!.plugins!.push(
+    new DefinePlugin({
+      __API__: JSON.stringify(''),
+      __IS_DEV__: JSON.stringify(true),
+      __PROJECT__: JSON.stringify('storybook'),
+    }),
+  );
 
   config!.module!.rules!.push(buildCssLoader({ isDev: true }));
 

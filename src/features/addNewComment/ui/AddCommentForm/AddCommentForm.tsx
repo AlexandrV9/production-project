@@ -1,4 +1,5 @@
 import { FC, memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -9,7 +10,7 @@ import {
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-import { useSelector } from 'react-redux';
+import { HStack } from 'shared/ui/Stack';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
   addNewCommentActions,
@@ -53,7 +54,7 @@ const AddCommentForm: FC<AddCommentFormProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.AddCommentForm, {}, [className])}>
+      <HStack max justify='between' className={classNames(cls.AddCommentForm, {}, [className])}>
         <Input
           placeholder={t('Enter comment text')}
           value={text}
@@ -63,7 +64,7 @@ const AddCommentForm: FC<AddCommentFormProps> = memo((props) => {
         <Button theme={ButtonTheme.OUTLINE} onClick={onSendHandler}>
           {t('Send')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 });

@@ -3,10 +3,7 @@ import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
-
-import {
-  ArticleList
-} from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
@@ -19,11 +16,11 @@ import { Page } from 'widgets/Page/Page';
 import {
   getArticlePageError,
   getArticlePageIsLoading,
-  getArticlePageView
+  getArticlePageView,
 } from '../../model/selectors/articlePageSelectors';
 import {
   articlePageReducer,
-  getArticles
+  getArticles,
 } from '../../model/slices/articlePageSlice';
 
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -49,7 +46,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const error = useSelector(getArticlePageError);
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlePageIsLoading);
-  const [searchParams] = useSearchParams()
+  const [searchParams] = useSearchParams();
 
   const handleLoadNextPart = useCallback(() => {
     if (__PROJECT__ !== 'storybook') {
