@@ -1,6 +1,12 @@
-import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from 'react';
+import {
+  createElement,
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  ReactNode,
+} from 'react';
 
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
+import { classNames,Mods } from 'shared/lib/classNames/classNames';
 
 import cls from './Flex.module.scss';
 
@@ -34,7 +40,10 @@ const gapClasses: Record<FlexGap, string> = {
   '32': cls.gap32,
 };
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
 export interface FlexProps extends DivProps {
   className?: string;
   children: ReactNode;
@@ -43,6 +52,7 @@ export interface FlexProps extends DivProps {
   direction?: FlexDirection;
   gap?: FlexGap;
   max?: boolean;
+  tag?: keyof HTMLElementTagNameMap;
 }
 
 export const Flex: FC<FlexProps> = (props) => {
@@ -53,7 +63,9 @@ export const Flex: FC<FlexProps> = (props) => {
     justify = 'start',
     direction = 'row',
     gap = '4',
-    max
+    max,
+    tag = 'div',
+    ...otherProps
   } = props;
 
   const clasess = [
@@ -65,8 +77,15 @@ export const Flex: FC<FlexProps> = (props) => {
   ];
 
   const mods: Mods = {
-    [cls.max]: max
-  }
+    [cls.max]: max,
+  };
 
-  return <div className={classNames(cls.Flex, mods, clasess)}>{children}</div>;
+  return createElement(
+    tag,
+    {
+      className: classNames(cls.Flex, mods, clasess),
+      ...otherProps,
+    },
+    children,
+  );
 };

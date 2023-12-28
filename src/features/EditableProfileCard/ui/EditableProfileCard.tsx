@@ -1,28 +1,28 @@
 import { FC, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import {
+  profileActions,
   ProfileCard,
   ValidateProfileError,
-  profileActions,
 } from 'entities/Profile';
-
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
-import { VStack, HStack } from 'shared/ui/Stack';
-import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
-import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
-import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
-import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
 
-import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { HStack,VStack } from 'shared/ui/Stack';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+
 import { getProfileData } from '../model/selectors/getProfileData/getProfileData';
+import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
+import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
+import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
 
 interface EditableProfileCardProps {}
 

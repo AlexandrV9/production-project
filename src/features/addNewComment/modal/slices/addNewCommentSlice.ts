@@ -1,4 +1,5 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice,PayloadAction } from '@reduxjs/toolkit';
+
 import { AddNewCommentSchema } from '../types/addNewComment';
 
 const initialState: AddNewCommentSchema = {};

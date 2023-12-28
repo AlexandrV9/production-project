@@ -9,6 +9,9 @@ module.exports = {
     'plugin:i18next/recommended',
     'airbnb',
     'prettier',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -24,6 +27,7 @@ module.exports = {
     'i18next',
     'react-hooks',
     'alex-plugin-fsd',
+    'simple-import-sort',
   ],
   rules: {
     'react/jsx-indent': [2, 2],
@@ -56,7 +60,9 @@ module.exports = {
           'justify',
           'direction',
           'gap',
-          'role'
+          'role',
+          'tag',
+          'as'
         ],
       },
     ],
@@ -73,6 +79,8 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'warn',
     'alex-plugin-fsd/path-checker': 'error',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
   globals: {
     __IS_DEV__: true,
@@ -86,6 +94,37 @@ module.exports = {
         'i18next/no-literal-string': 'off',
         'max-len': 'off',
         'react/jsx-props-no-spreading': 'off',
+      },
+    },
+    {
+      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+      rules: {
+        'simple-import-sort/imports': [
+          'error',
+          {
+            groups: [
+              // Packages `react` related packages come first.
+              ['^react', '^@?\\w'],
+              // fsd
+              ['^(@|app)(/.*|$)'],
+              ['^(@|pages)(/.*|$)'],
+              ['^(@|widgets)(/.*|$)'],
+              ['^(@|features)(/.*|$)'],
+              ['^(@|entities)(/.*|$)'],
+              ['^(@|shared)(/.*|$)'],
+              // assets
+              ['^(assets)(/.*|$)'],
+              // Side effect imports.
+              ['^\\u0000'],
+              // Parent imports. Put `..` last.
+              ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+              // Other relative imports. Put same-folder imports and `.` last.
+              ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+              // Style imports.
+              ['^.+\\.?(css)$'],
+            ],
+          },
+        ],
       },
     },
   ],

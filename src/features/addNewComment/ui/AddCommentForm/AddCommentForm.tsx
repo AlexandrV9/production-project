@@ -1,25 +1,25 @@
 import { FC, memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Input } from 'shared/ui/Input/ui/Input';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-
-import { HStack } from 'shared/ui/Stack';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import {
-  addNewCommentActions,
-  addNewCommentReducer,
-} from '../../modal/slices/addNewCommentSlice';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Input } from 'shared/ui/Input/ui/Input';
+import { HStack } from 'shared/ui/Stack';
+
 import {
   getAddCommentFormError,
   getAddCommentFormText,
 } from '../../modal/selectors/addCommentForm';
+import {
+  addNewCommentActions,
+  addNewCommentReducer,
+} from '../../modal/slices/addNewCommentSlice';
 
 import cls from './AddCommentForm.module.scss';
 

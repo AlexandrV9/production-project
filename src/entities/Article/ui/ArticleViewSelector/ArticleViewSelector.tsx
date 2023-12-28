@@ -1,13 +1,12 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-
-import ListIcon from 'shared/assets/icons/list-20-20.svg';
 import GridIcon from 'shared/assets/icons/grid-20-20.svg';
-
-import { Icon } from 'shared/ui/Icon/Icon';
+import ListIcon from 'shared/assets/icons/list-20-20.svg';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Icon } from 'shared/ui/Icon/Icon';
+
 import { ArticleView } from '../../model/types/article';
 
 import cls from './ArticleViewSelector.module.scss';

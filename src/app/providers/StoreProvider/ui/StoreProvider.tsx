@@ -2,10 +2,11 @@ import { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 
-import { useAppNavigate } from 'shared/lib/hooks/useAppNavigate';
 import { useAppLocation } from 'shared/lib/hooks/useAppLocation';
-import { createReduxStore } from '../config/store';
+import { useAppNavigate } from 'shared/lib/hooks/useAppNavigate';
+
 import { StateSchema } from '../config/StateSchema';
+import { createReduxStore } from '../config/store';
 
 interface StoreProviderProps {
   children?: ReactNode;

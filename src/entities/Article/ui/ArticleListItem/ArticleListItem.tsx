@@ -7,19 +7,18 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Icon } from 'shared/ui/Icon/Icon';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
-import { Card } from 'shared/ui/Card/Card';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import Error from 'shared/assets/icons/error-20-20.svg';
+import IconEye from 'shared/assets/icons/eye-20-20.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Loader } from 'shared/ui/Loader/Loader';
+import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstorage';
-
-import IconEye from 'shared/assets/icons/eye-20-20.svg';
-import Error from 'shared/assets/icons/error-20-20.svg';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Card } from 'shared/ui/Card/Card';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { Loader } from 'shared/ui/Loader/Loader';
+import { Text, TextAlign } from 'shared/ui/Text/Text';
 
 import {
   Article,

@@ -1,10 +1,12 @@
 import { StateSchema } from 'app/providers/StoreProvider';
+
+import { testArticle } from '../consts/testArticle';
+
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from './articleDetails';
-import { testArticle } from '../consts/testArticle';
 
 describe('articleDetailsSelectors', () => {
   test('should return article details data', () => {

@@ -1,11 +1,12 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import {
-  ProfileSchema,
-  ValidateProfileError,
   profileActions,
   profileReducer,
+  ProfileSchema,
+  ValidateProfileError,
 } from 'entities/Profile';
+
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 const data = {

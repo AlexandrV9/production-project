@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  useNavigate as useNavigateOriginal,
   useLocation as useLocationOriginal,
+  useNavigate as useNavigateOriginal,
 } from 'react-router-dom';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

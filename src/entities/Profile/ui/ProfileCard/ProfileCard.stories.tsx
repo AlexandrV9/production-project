@@ -1,8 +1,10 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import testImg from "shared/assets/tests/test-photo.jpeg"
+import { ComponentMeta,ComponentStory } from '@storybook/react';
 
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+
+import testImg from "shared/assets/tests/test-photo.jpeg"
+
 import { ProfileCard } from './ProfileCard';
 
 export default {

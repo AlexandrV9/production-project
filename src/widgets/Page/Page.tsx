@@ -2,13 +2,15 @@ import { FC, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import { StateSchema } from 'app/providers/StoreProvider';
-import { useThrottle } from 'shared/lib/hooks/useThrottle';
+
+import { getSaveScrollByPath, scrollSaveActions } from 'features/ScrollSave';
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
-import { getSaveScrollByPath, scrollSaveActions } from 'features/ScrollSave';
-import { useInitialLayoutEffect } from 'shared/lib/hooks/useInitialLayoutEffect';
 import { useAppLocation } from 'shared/lib/hooks/useAppLocation';
+import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
+import { useInitialLayoutEffect } from 'shared/lib/hooks/useInitialLayoutEffect';
+import { useThrottle } from 'shared/lib/hooks/useThrottle';
 
 import cls from './Page.module.scss';
 

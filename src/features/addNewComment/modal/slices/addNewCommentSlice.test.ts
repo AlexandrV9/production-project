@@ -1,5 +1,7 @@
 import { ProfileSchema } from 'entities/Profile';
+
 import { AddNewCommentSchema } from '../types/addNewComment';
+
 import {
   addNewCommentActions,
   addNewCommentReducer,

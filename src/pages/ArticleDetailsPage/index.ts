@@ -1,11 +1,10 @@
-import { ArticleDetailsPageAsync } from './ui/ArticleDetailsPage/ArticleDetailsPage.async';
+import { ArticleDetailsPageSchema } from './model/types';
 import { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema';
 import { ArticleDetailsRecommendationsSchema } from './model/types/ArticleDetailsRecommendationsSchema';
-import { ArticleDetailsPageSchema } from './model/types';
+import { ArticleDetailsPageAsync } from './ui/ArticleDetailsPage/ArticleDetailsPage.async';
 
 export {
-  ArticleDetailsPageAsync as ArticleDetailsPage,
   ArticleDetailsCommentsSchema,
-  ArticleDetailsRecommendationsSchema,
-  ArticleDetailsPageSchema
-};
+  ArticleDetailsPageAsync as ArticleDetailsPage,
+  ArticleDetailsPageSchema,
+  ArticleDetailsRecommendationsSchema};

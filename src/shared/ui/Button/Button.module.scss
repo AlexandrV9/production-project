@@ -9,6 +9,10 @@
     fill-opacity: 0.8;
     stroke-opacity: 0.8;
   }
+
+  &:disabled {
+    pointer-events: none;
+  }
 }
 
 .clear,

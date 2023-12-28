@@ -1,4 +1,6 @@
-import { AnyAction, Reducer, ReducersMapObject, combineReducers } from "@reduxjs/toolkit";
+import { AnyAction, combineReducers,Reducer, ReducersMapObject } from "@reduxjs/toolkit";
+
+// eslint-disable-next-line import/no-cycle
 import { reducerManager, StateSchema, StateSchemaKey } from "./StateSchema";
 
 export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): reducerManager {

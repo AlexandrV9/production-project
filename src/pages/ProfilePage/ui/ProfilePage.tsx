@@ -1,7 +1,11 @@
-import { fetchProfileData, profileReducer } from 'entities/Profile';
-import { EditableProfileCard } from 'features/EditableProfileCard';
 import { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { Page } from 'widgets/Page/Page';
+
+import { EditableProfileCard } from 'features/EditableProfileCard';
+
+import { fetchProfileData, profileReducer } from 'entities/Profile';
 
 import {
   DynamicModuleLoader,
@@ -9,7 +13,6 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Page } from 'widgets/Page/Page';
 
 const reducers: ReducersList = {
   profile: profileReducer,

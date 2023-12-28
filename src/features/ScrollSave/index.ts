@@ -1,17 +1,17 @@
-import { ScrollSaveSchema } from './model/types/ScrollSaveSchema';
-import {
-  scrollSaveReducer,
-  scrollSaveActions,
-} from './model/slices/scrollSaveSlice';
 import {
   getSaveScroll,
   getSaveScrollByPath,
 } from './model/seletors/scrollSaveSelectors';
+import {
+  scrollSaveActions,
+  scrollSaveReducer,
+} from './model/slices/scrollSaveSlice';
+import { ScrollSaveSchema } from './model/types/ScrollSaveSchema';
 
 export {
-  ScrollSaveSchema,
-  scrollSaveReducer,
-  scrollSaveActions,
   getSaveScroll,
   getSaveScrollByPath,
+  scrollSaveActions,
+  scrollSaveReducer,
+  ScrollSaveSchema,
 };

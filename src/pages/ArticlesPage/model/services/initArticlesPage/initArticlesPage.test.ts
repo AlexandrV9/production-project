@@ -1,10 +1,13 @@
 import { Dispatch } from '@reduxjs/toolkit';
 
 import { StateSchema } from 'app/providers/StoreProvider';
+
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { initArticlesPage } from './initArticlesPage';
-import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+
 import { articlePageActions } from '../../slices/articlePageSlice';
+import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+
+import { initArticlesPage } from './initArticlesPage';
 
 jest.mock('../fetchArticlesList/fetchArticlesList')
 

@@ -1,8 +1,9 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta,ComponentStory } from '@storybook/react';
+
+import { testArticle } from '../../model/consts/testArticle';
+import { Article, ArticleView } from '../../model/types/article';
 
 import { ArticleList } from './ArticleList';
-import { Article, ArticleView } from '../../model/types/article';
-import { testArticle } from '../../model/consts/testArticle';
 
 const listArticle = Array.from({ length: 3 })
   .fill(0)

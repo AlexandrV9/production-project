@@ -1,9 +1,10 @@
 import { FC, memo } from 'react';
 
-import { useCopy } from 'shared/lib/hooks/useCopy';
-import { classNames } from 'shared/lib/classNames/classNames';
 import IconCopy from 'shared/assets/icons/copy-20-20.svg';
 import IconSuccess from 'shared/assets/icons/success-copy-20-20.svg';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useCopy } from 'shared/lib/hooks/useCopy';
+
 import { Button, ButtonTheme } from '../Button/Button';
 import { Icon } from '../Icon/Icon';
 

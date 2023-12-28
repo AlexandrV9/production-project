@@ -1,3 +1,4 @@
+import { Location, NavigateOptions, To } from 'react-router-dom';
 import {
   AnyAction,
   CombinedState,
@@ -6,18 +7,20 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { Location, NavigateOptions, To } from 'react-router-dom';
+
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+import { ArticlePageSchema } from 'pages/ArticlesPage';
+
+import { AddNewCommentSchema } from 'features/addNewComment';
+import { LoginSchema } from 'features/AuthByUsername';
+import { ScrollSaveSchema } from 'features/ScrollSave';
 
 import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
-import { ScrollSaveSchema } from 'features/ScrollSave';
-import { AddNewCommentSchema } from 'features/addNewComment';
-import { ArticlePageSchema } from 'pages/ArticlesPage';
 
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+// eslint-disable-next-line import/no-cycle
 import { AppDispatch } from './store';
 
 export interface StateSchema {

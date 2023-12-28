@@ -1,13 +1,14 @@
 import { FC, memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import { getArticleDetailsData } from 'entities/Article';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { getArticleDetailsData } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppNavigate } from 'shared/lib/hooks/useAppNavigate';
-import { HStack } from 'shared/ui/Stack';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
 
 import { getCanEditArticle } from '../../model/selectors/article';
 

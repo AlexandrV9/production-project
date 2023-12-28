@@ -1,7 +1,10 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 
 import { testArticle } from 'entities/Article/model/consts/testArticle';
+
 import { ArticleSortField, ArticleType, ArticleView } from '../../../../entities/Article/model/types/article';
+import { getArticles } from '../slices/articlePageSlice';
+
 import {
   getArticlePageError,
   getArticlePageHasMore,
@@ -15,7 +18,6 @@ import {
   getArticlePageType,
   getArticlePageView,
 } from './articlePageSelectors';
-import { getArticles } from '../slices/articlePageSlice';
 
 describe('articlePageSelectors', () => {
   test('should return article page isLoading', () => {

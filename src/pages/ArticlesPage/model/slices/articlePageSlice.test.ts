@@ -1,8 +1,10 @@
 import { testArticle } from 'entities/Article/model/consts/testArticle';
+
 import { ArticleSortField, ArticleType, ArticleView } from '../../../../entities/Article/model/types/article';
-import { articlePageActions, articlePageReducer } from './articlePageSlice';
-import { ArticlePageSchema } from '../types/articlePageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
+import { ArticlePageSchema } from '../types/articlePageSchema';
+
+import { articlePageActions, articlePageReducer } from './articlePageSlice';
 
 describe('articlePageSlice.test', () => {
   test('test set view = LIST', () => {

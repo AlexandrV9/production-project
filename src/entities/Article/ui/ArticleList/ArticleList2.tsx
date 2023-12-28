@@ -3,8 +3,8 @@ import {
   FC,
   FunctionComponent,
   HTMLAttributeAnchorTarget,
-  ReactElement,
   memo,
+  ReactElement,
   useEffect,
   useMemo,
   useRef,
@@ -19,13 +19,14 @@ import {
   VirtuosoGridHandle,
 } from 'react-virtuoso';
 
+import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
+
+import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
-import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstorage';
 
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 import cls from './ArticleList2.module.scss';

@@ -1,13 +1,16 @@
-import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { Location, NavigateOptions, To } from 'react-router-dom';
+import { CombinedState, configureStore,Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+
+import { scrollSaveReducer } from 'features/ScrollSave';
 
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { scrollSaveReducer } from 'features/ScrollSave';
+
 import { $api } from 'shared/api/api';
 
-import { StateSchema, ThunkExtraArg } from './StateSchema';
+// eslint-disable-next-line import/no-cycle
 import { createReducerManager } from './reducerManager';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 
 export function createReduxStore(

@@ -1,9 +1,10 @@
 import { Article } from 'entities/Article';
 import { testArticle } from 'entities/Article/model/consts/testArticle';
 
-import { articleDetailsRecommendationsReducer } from './articleDetailsRecommendationsSlice';
-import { ArticleDetailsRecommendationsSchema } from '../../types/ArticleDetailsRecommendationsSchema';
 import { fetchArticleRecommendations } from '../../services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { ArticleDetailsRecommendationsSchema } from '../../types/ArticleDetailsRecommendationsSchema';
+
+import { articleDetailsRecommendationsReducer } from './articleDetailsRecommendationsSlice';
 
 
 const recommendations: Article[] = [

@@ -1,11 +1,15 @@
-import { FC, Suspense, memo, useCallback } from 'react';
+import { FC, memo, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import { Page } from 'widgets/Page/Page';
+
+import { AddCommentForm } from 'features/addNewComment';
+
 import { ArticleDetails, ArticleList } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
-import { AddCommentForm } from 'features/addNewComment';
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
@@ -14,9 +18,9 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Loader } from 'shared/ui/Loader/Loader';
-import { Text, TextSize } from 'shared/ui/Text/Text';
 import { VStack } from 'shared/ui/Stack';
-import { Page } from 'widgets/Page/Page';
+import { Text, TextSize } from 'shared/ui/Text/Text';
+
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
 import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
