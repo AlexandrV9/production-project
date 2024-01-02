@@ -6,6 +6,7 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
 
+import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -31,10 +32,11 @@ const reducers: ReducersList = {
 
 interface EditableProfileCardProps {
   id: string;
+  className?: string;
 }
 
 export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
-  const { id } = props;
+  const { id, className } = props;
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile');
 
@@ -118,7 +120,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <VStack gap='16' max>
+      <VStack gap='16' max className={classNames("", {}, [className])}>
         <EditableProfileCardHeader />
         {validateErrors?.length &&
           validateErrors.map((err) => (
