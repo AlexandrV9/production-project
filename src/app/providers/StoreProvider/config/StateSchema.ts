@@ -20,6 +20,8 @@ import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 
+import { rtkApi } from 'shared/api/rtkApi';
+
 // eslint-disable-next-line import/no-cycle
 import { AppDispatch } from './store';
 
@@ -27,6 +29,7 @@ export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   scrollSave: ScrollSaveSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // Асинхронные редьюсеры
   loginForm?: LoginSchema;

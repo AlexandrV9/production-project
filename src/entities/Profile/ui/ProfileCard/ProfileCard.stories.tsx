@@ -4,6 +4,7 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 
 import testImg from "shared/assets/tests/test-photo.jpeg"
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import { ProfileCard } from './ProfileCard';
 
@@ -37,8 +38,10 @@ export const withError = Template.bind({});
 withError.args = {
   error: 'true',
 };
+withError.decorators = [StoreDecorator({})]
 
 export const Loading = Template.bind({});
 Loading.args = {
   isLoading: true,
 };
+Loading.decorators = [StoreDecorator({})]

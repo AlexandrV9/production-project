@@ -1,5 +1,3 @@
-import { EditableProfileCard } from "./ui/EditableProfileCard";
+import { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
 
-export {
-  EditableProfileCard
-}
+export { EditableProfileCard };

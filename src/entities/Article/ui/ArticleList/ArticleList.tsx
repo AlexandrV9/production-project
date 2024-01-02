@@ -26,7 +26,13 @@ const getSkeletons = (view: ArticleView) =>
     ));
 
 export const ArticleList: FC<ArticleListProps> = memo((props) => {
-  const { className, articles, isLoading, view = ArticleView.GRID, target } = props;
+  const {
+    className,
+    articles,
+    isLoading,
+    view = ArticleView.GRID,
+    target,
+  } = props;
   const { t } = useTranslation('article-list');
 
   const renderArticle = (article: Article) => (
@@ -39,7 +45,15 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
     />
   );
 
-  if (!isLoading && !articles.length) {
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view], cls.loading])}>
+        {getSkeletons(view)}
+      </div>
+    );
+  }
+
+  if (!articles?.length) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
         <Text title={t('No articles found')} size={TextSize.L} />
@@ -50,7 +64,6 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length > 0 ? articles.map(renderArticle) : null}
-      {isLoading && getSkeletons(view)}
     </div>
   );
 });

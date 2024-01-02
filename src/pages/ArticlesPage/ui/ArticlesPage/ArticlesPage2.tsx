@@ -5,8 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import { Page } from 'widgets/Page/Page';
 
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList2';
-
+// import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList2';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
@@ -62,13 +61,14 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
       {error ? (
         <Text text={t('Failed to load data')} theme={TextTheme.ERROR} />
       ) : (
-        <ArticleList
-          isLoading={isLoading}
-          articles={articles}
-          view={view}
-          className={cls.list}
-          onLoadNextPart={handleLoadNextPart}
-        />
+        // <ArticleList
+        //   isLoading={isLoading}
+        //   articles={articles}
+        //   view={view}
+        //   className={cls.list}
+        //   onLoadNextPart={handleLoadNextPart}
+        // />
+        <div />
       )}
     </DynamicModuleLoader>
   );

@@ -15,5 +15,6 @@
   "data_not_provided": "Data not provided",
   "server_error_when_saving": "Server error when saving",
   "invalid_region": "Invalid region",
-  "first_and_last_name_are_required": "First and last name are required"
+  "first_and_last_name_are_required": "First and last name are required",
+  "Profile not found": "Profile not found"
 }

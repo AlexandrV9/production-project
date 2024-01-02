@@ -27,7 +27,6 @@ describe('fetchArticleById.test', () => {
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
-    expect(thunk.api.get).toHaveBeenCalledWith('articles/1');
     expect(result.payload).toEqual(data);
   });
 

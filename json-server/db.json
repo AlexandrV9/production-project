@@ -283,6 +283,12 @@
       "userId": "1",
       "text": "23edwdw",
       "id": "6OuFGN9"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "cd",
+      "id": "ekBWT6c"
     }
   ],
   "users": [
@@ -304,7 +310,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "Александр22",
+      "first": "Александр",
       "lastname": "Ващекин",
       "age": 32,
       "currency": "RUB",

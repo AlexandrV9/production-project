@@ -1,5 +1,10 @@
 import { Location, NavigateOptions, To } from 'react-router-dom';
-import { CombinedState, configureStore,Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  CombinedState,
+  configureStore,
+  Reducer,
+  ReducersMapObject,
+} from '@reduxjs/toolkit';
 
 import { scrollSaveReducer } from 'features/ScrollSave';
 
@@ -7,23 +12,24 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 
 import { $api } from 'shared/api/api';
+import { rtkApi } from 'shared/api/rtkApi';
 
 // eslint-disable-next-line import/no-cycle
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
-
 export function createReduxStore(
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
   navigate?: (to: To, options?: NavigateOptions) => void,
-  location?: Location
+  location?: Location,
 ) {
   const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
-    scrollSave: scrollSaveReducer
+    scrollSave: scrollSaveReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducer);
@@ -31,8 +37,8 @@ export function createReduxStore(
   const extraArg: ThunkExtraArg = {
     api: $api,
     navigate,
-    location
-  }
+    location,
+  };
 
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
@@ -41,9 +47,9 @@ export function createReduxStore(
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
-          extraArgument: extraArg
+          extraArgument: extraArg,
         },
-      }),
+      }).concat(rtkApi.middleware),
   });
 
   // @ts-ignore`

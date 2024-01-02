@@ -5,8 +5,6 @@ import { useSearchParams } from 'react-router-dom';
 
 import { Page } from 'widgets/Page/Page';
 
-import { ArticleList } from 'entities/Article';
-
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
@@ -14,19 +12,14 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { VStack } from 'shared/ui/Stack';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 
-import {
-  getArticlePageError,
-  getArticlePageIsLoading,
-  getArticlePageView,
-} from '../../model/selectors/articlePageSelectors';
+import { getArticlePageError } from '../../model/selectors/articlePageSelectors';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import {
-  articlePageReducer,
-  getArticles,
-} from '../../model/slices/articlePageSlice';
+import { articlePageReducer } from '../../model/slices/articlePageSlice';
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 import cls from './ArticlesPage.module.scss';
@@ -44,10 +37,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const { t } = useTranslation('articles-page');
   const dispatch = useAppDispatch();
 
-  const view = useSelector(getArticlePageView);
   const error = useSelector(getArticlePageError);
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlePageIsLoading);
   const [searchParams] = useSearchParams();
 
   const handleLoadNextPart = useCallback(() => {
@@ -71,12 +61,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
         ) : (
           <>
             <ArticlesPageFilters />
-            <ArticleList
-              isLoading={isLoading}
-              articles={articles}
-              view={view}
-              className={cls.list}
-            />
+            <ArticleInfiniteList className={cls.list} />
           </>
         )}
       </Page>

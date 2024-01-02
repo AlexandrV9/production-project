@@ -18,6 +18,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { HStack } from 'shared/ui/Stack';
 import { Text, TextAlign } from 'shared/ui/Text/Text';
 
 import {
@@ -66,7 +67,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
     ) as ArticleTextBlock;
 
     return (
-      <div
+      <HStack
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
       >
         <Card className={cls.card}>
@@ -96,7 +97,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
             {views}
           </div>
         </Card>
-      </div>
+      </HStack>
     );
   }
 
