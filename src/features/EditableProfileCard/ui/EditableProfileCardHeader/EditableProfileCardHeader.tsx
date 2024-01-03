@@ -48,7 +48,11 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> =
         {canEdit && (
           <div>
             {readonly ? (
-              <Button theme={ButtonTheme.OUTLINE} onClick={handleEdit}>
+              <Button
+                theme={ButtonTheme.OUTLINE}
+                onClick={handleEdit}
+                data-testid='EditableProfileCardHeader.EditButton'
+              >
                 {t('edit')}
               </Button>
             ) : (
@@ -56,10 +60,15 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> =
                 <Button
                   theme={ButtonTheme.OUTLINE_RED}
                   onClick={handleCancelEdite}
+                  data-testid='EditableProfileCardHeader.CancelButton'
                 >
                   {t('cancel')}
                 </Button>
-                <Button theme={ButtonTheme.OUTLINE} onClick={handleSave}>
+                <Button
+                  theme={ButtonTheme.OUTLINE}
+                  onClick={handleSave}
+                  data-testid='EditableProfileCardHeader.SaveButton'
+                >
                   {t('save')}
                 </Button>
               </HStack>
