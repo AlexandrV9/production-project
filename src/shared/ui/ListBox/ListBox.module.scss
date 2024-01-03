@@ -4,7 +4,7 @@
 
 .options {
   position: absolute;
-  z-index: 100;
+  z-index: var(--sidebar-listbox-z-index);
   background-color: var(--listbox-bg);
   border-radius: 12px;
   box-shadow: 4px 4px 8px var(--listbox-bg);

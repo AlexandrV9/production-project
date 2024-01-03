@@ -28,5 +28,7 @@
   "Create article": "Create article",
   "Exit": "Exit",
   "User profile": "User profile",
-  "Profile": "Profile"
+  "Profile": "Profile",
+  "Admin": "Admin",
+  "You do not have access to this page": "You do not have access to this page"
 }

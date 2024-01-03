@@ -4,7 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { LoginModal } from 'features/AuthByUsername';
 
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userActions,
+} from 'entities/User';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -25,6 +30,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const dispatch = useDispatch();
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
   const authData = useSelector(getUserAuthData);
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const handleCloseModal = useCallback(() => {
     setIsAuthModal((prevValue) => !prevValue);
@@ -37,6 +44,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const handleLogout = useCallback(() => {
     dispatch(userActions.logout());
   }, [dispatch]);
+
+  const isAdminPanelAvailable = isAdmin || isManager;
 
   if (authData) {
     return (
@@ -58,6 +67,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           className={cls.dropdown}
           trigger={<Avatar size={30} src={authData.avatar} />}
           items={[
+            ...(isAdminPanelAvailable
+              ? [
+                {
+                  content: t('Admin'),
+                  href: `${RoutePath.admin_panel}`,
+                },
+              ]
+              : []),
             {
               content: t('Profile'),
               href: `${RoutePath.profile}/${authData.id}`,

@@ -27,5 +27,8 @@
   "Lib Storage App": "Lib Storage App",
   "Create article": "Создать статью",
   "User profile": "Профиль пользователя",
-  "Profile": "Профиль"
+  "Profile": "Профиль",
+  "Admin": "Админка",
+  "You do not have access to this page": "У вас нет доступа к этой странице",
+  "Exit": "Выход"
 }
