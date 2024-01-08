@@ -1,16 +1,18 @@
 import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
-import { Story, StoryContext } from '@storybook/react';
+import { StoryContext } from '@storybook/react';
 
 import { RouterUtils } from 'app/providers/router';
 
 export const RouterDecorator = (
-  story: () => Story,
+  Story: any,
   { parameters: { router } }: StoryContext,
 ) => {
   if (!router) {
     return (
       <BrowserRouter>
-        <RouterUtils>{story()}</RouterUtils>
+        <RouterUtils>
+          <Story />
+        </RouterUtils>
       </BrowserRouter>
     );
   }
@@ -21,7 +23,7 @@ export const RouterDecorator = (
     <MemoryRouter initialEntries={[encodeURI(route)]}>
       <RouterUtils>
         <Routes>
-          <Route path={path} element={story()} />
+          <Route path={path} element={<Story />} />
         </Routes>
       </RouterUtils>
     </MemoryRouter>

@@ -9,7 +9,7 @@ export const useDebaunce: UseDebaunce = (callback, delay) => {
   const timerRef = useRef<NodeJS.Timeout>();
 
   const debauncedCallback = useCallback(
-    (...args) => {
+    (...args: any[]) => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }

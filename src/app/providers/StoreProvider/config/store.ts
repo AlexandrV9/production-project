@@ -1,5 +1,6 @@
 import { Location, NavigateOptions, To } from 'react-router-dom';
 import {
+  // @ts-ignore
   CombinedState,
   configureStore,
   Reducer,

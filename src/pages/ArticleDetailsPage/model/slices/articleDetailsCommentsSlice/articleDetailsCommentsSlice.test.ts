@@ -23,7 +23,9 @@ describe('articleDetailsCommentsSlice.test', () => {
     };
     expect(
       articleDetailsCommentsReducer(
+        // @ts-ignore
         state as ArticleDetailsCommentsSchema,
+        // @ts-ignore
         fetchCommentsByArticleId.pending,
       ),
     ).toEqual({ isLoading: true, error: undefined });
@@ -35,6 +37,7 @@ describe('articleDetailsCommentsSlice.test', () => {
     };
     expect(
       articleDetailsCommentsReducer(
+        // @ts-ignore
         state as ArticleDetailsCommentsSchema,
         fetchCommentsByArticleId.fulfilled(comments, '', ''),
       ),

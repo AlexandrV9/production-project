@@ -1,23 +1,18 @@
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import LoginForm from './LoginForm';
 
-
-export default {
+const meta = {
   title: 'features/LoginForm',
   component: LoginForm,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof LoginForm>;
+} satisfies Meta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => (
-  <LoginForm {...(typeof args === 'object' ? args : {})} />
-);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Primary = Template.bind({});
+export const Primary: Story = {};
 Primary.args = {};
 Primary.decorators = [
   StoreDecorator({
@@ -25,7 +20,7 @@ Primary.decorators = [
   }),
 ];
 
-export const withError = Template.bind({});
+export const withError: Story = {};
 withError.args = {};
 withError.decorators = [
   StoreDecorator({
@@ -33,7 +28,7 @@ withError.decorators = [
   }),
 ];
 
-export const Loading = Template.bind({});
+export const Loading: Story = {};
 Loading.args = {};
 Loading.decorators = [
   StoreDecorator({

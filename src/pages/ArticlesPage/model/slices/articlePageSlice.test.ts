@@ -109,6 +109,7 @@ describe('articlePageSlice.test', () => {
       isLoading: false,
     };
     expect(
+      // @ts-ignore
       articlePageReducer(state as ArticlePageSchema, fetchArticlesList.pending),
     ).toEqual({ isLoading: true });
   });

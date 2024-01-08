@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { FC } from 'react';
 
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 
@@ -26,11 +26,11 @@ const defaultAsyncReducer: ReducersList = {
 
 export const StoreDecorator =
   (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
-    (StoryComponent: Story) => (
+    (Story: FC) => (
       <StoreProvider
         initialState={state}
         asyncReducers={{ ...defaultAsyncReducer, ...asyncReducers }}
       >
-        <StoryComponent />
+        <Story />
       </StoreProvider>
     );

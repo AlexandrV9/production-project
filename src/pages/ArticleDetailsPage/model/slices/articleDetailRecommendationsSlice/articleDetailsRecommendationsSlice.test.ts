@@ -18,7 +18,9 @@ describe('articleDetailsCommentsSlice.test', () => {
     };
     expect(
       articleDetailsRecommendationsReducer(
+        // @ts-ignore
         state as ArticleDetailsRecommendationsSchema,
+        // @ts-ignore
         fetchArticleRecommendations.pending,
       ),
     ).toEqual({ isLoading: true, error: undefined });
@@ -30,6 +32,7 @@ describe('articleDetailsCommentsSlice.test', () => {
     };
     expect(
       articleDetailsRecommendationsReducer(
+        // @ts-ignore
         state as ArticleDetailsRecommendationsSchema,
         fetchArticleRecommendations.fulfilled(recommendations, ''),
       ),

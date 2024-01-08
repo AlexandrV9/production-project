@@ -31,7 +31,7 @@ const reducers: ReducersList = {
 };
 
 interface EditableProfileCardProps {
-  id: string;
+  id?: string;
   className?: string;
 }
 

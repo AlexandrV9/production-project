@@ -1,20 +1,16 @@
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { CommentItem } from './CommentItem';
 
-export default {
+const meta = {
   title: 'entities/Comment/CommentItem',
   component: CommentItem,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof CommentItem>;
+} satisfies Meta<typeof CommentItem>;
 
-const Template: ComponentStory<typeof CommentItem> = (args) => (
-  <CommentItem {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Normal = Template.bind({});
+export const Normal: Story = {};
 Normal.args = {
   comment: {
     id: '1',
@@ -26,7 +22,7 @@ Normal.args = {
   },
 };
 
-export const Loading = Template.bind({});
+export const Loading: Story = {};
 Loading.args = {
   isLoading: true,
   comment: {

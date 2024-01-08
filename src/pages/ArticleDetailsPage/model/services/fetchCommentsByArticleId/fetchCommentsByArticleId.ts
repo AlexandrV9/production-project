@@ -11,11 +11,10 @@ export const fetchCommentsByArticleId = createAsyncThunk<
 >('articleDetails/fetchCommentsByArticleId', async (articleId, thunkApi) => {
   const { extra, rejectWithValue } = thunkApi;
 
-  if (!articleId) {
-    return rejectWithValue('error');
-  }
-
   try {
+    if (!articleId) {
+      return rejectWithValue('error');
+    }
     const res = await extra.api.get<Comment[]>('/comments', {
       params: {
         articleId,
@@ -30,6 +29,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<
 
     return data;
   } catch (error) {
+    console.log(error);
     return rejectWithValue('error');
   }
 });

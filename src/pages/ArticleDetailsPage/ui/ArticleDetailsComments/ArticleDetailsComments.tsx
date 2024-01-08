@@ -20,7 +20,7 @@ import { getArticleComments } from '../../model/slices/articleDetailsCommentsSli
 
 interface ArticleDetailsCommentsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(

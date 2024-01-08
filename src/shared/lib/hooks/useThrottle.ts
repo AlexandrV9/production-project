@@ -10,7 +10,7 @@ export const useThrottle: UseThrottle = (callback, delay) => {
   const timeoutRef = useRef<NodeJS.Timeout>();
 
   const throttledCallback = useCallback(
-    (...args) => {
+    (...args: any[]) => {
       if (!throttleRef.current) {
         callback(...args);
         throttleRef.current = true;

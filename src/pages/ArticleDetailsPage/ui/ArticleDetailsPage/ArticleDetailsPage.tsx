@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
-import { Page } from 'widgets/Page/Page';
+import { Page } from 'widgets/Page/ui/Page';
 
 import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
 
@@ -34,13 +34,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   const { t } = useTranslation('article-details');
   const { id = '1' } = useParams<{ id: string }>();
 
-  if (!id) {
-    return (
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        {t('Article not found')}
-      </Page>
-    );
-  }
+  // if (!id) {
+  //   return (
+  //     <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+  //       {t('Article not found')}
+  //     </Page>
+  //   );
+  // }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

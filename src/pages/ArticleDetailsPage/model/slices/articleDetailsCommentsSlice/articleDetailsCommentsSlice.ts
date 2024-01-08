@@ -12,11 +12,13 @@ import { fetchCommentsByArticleId } from '../../services/fetchCommentsByArticleI
 import { ArticleDetailsCommentsSchema } from '../../types/ArticleDetailsCommentsSchema';
 
 const commentsAdapter = createEntityAdapter<Comment>({
-  selectId: (comment) => comment.id,
+  // @ts-ignore
+  selectId: (comment: Comment) => comment.id,
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
   (state) =>
+  // @ts-ignore
     state?.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
 );
 
@@ -24,6 +26,7 @@ const articleDetailsCommentsSlice = createSlice({
   name: 'articleDetails',
   initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
     isLoading: false,
+    // @ts-ignore
     ids: [],
     entities: {},
   }),

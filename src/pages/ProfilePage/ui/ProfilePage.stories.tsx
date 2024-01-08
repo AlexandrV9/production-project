@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -10,17 +10,15 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 
 import ProfilePage from './ProfilePage';
 
-export default {
+const meta = {
   title: 'pages/ProfilePage',
   component: ProfilePage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ProfilePage>;
+} satisfies Meta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Normal = Template.bind({});
+export const Normal: Story = {};
 Normal.args = {};
 Normal.decorators = [
   StoreDecorator({
@@ -39,7 +37,7 @@ Normal.decorators = [
   StoreDecorator({}),
 ];
 
-export const Dark = Template.bind({});
+export const Dark: Story = {};
 Dark.args = {};
 Dark.decorators = [
   ThemeDecorator(Theme.DARK),

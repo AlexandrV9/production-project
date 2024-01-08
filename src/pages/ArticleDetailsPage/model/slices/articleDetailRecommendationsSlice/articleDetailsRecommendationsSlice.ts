@@ -12,12 +12,14 @@ import { fetchArticleRecommendations } from '../../services/fetchArticleRecommen
 import { ArticleDetailsRecommendationsSchema } from '../../types/ArticleDetailsRecommendationsSchema';
 
 const recommendationsAdapter = createEntityAdapter<Article>({
-  selectId: (article) => article.id,
+  // @ts-ignore
+  selectId: (article: Article) => article.id,
 });
 
 export const getArticleRecommendations =
   recommendationsAdapter.getSelectors<StateSchema>(
     (state) =>
+    // @ts-ignore
       state?.articleDetailsPage?.recommendations ||
       recommendationsAdapter.getInitialState(),
   );
@@ -29,6 +31,7 @@ const articleDetailsRecommendationsSlice = createSlice({
       {
         isLoading: false,
         error: undefined,
+        // @ts-ignore
         ids: [],
         entities: {},
       },

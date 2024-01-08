@@ -3,7 +3,7 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
-import { Page } from 'widgets/Page/Page';
+import { Page } from 'widgets/Page/ui/Page';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
@@ -22,7 +22,13 @@ const ArticleEditPage: FC<ArticleEditPageProps> = memo((props) => {
 
   return (
     <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
-      <Text title={isEdit ? `${t('Edit article with id') } = ${id}` : t("Create new article")} />
+      <Text
+        title={
+          isEdit
+            ? `${t('Edit article with id')} = ${id}`
+            : t('Create new article')
+        }
+      />
     </Page>
   );
 });

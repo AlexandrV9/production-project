@@ -1,4 +1,4 @@
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { testArticle } from '../../model/consts/testArticle';
 import { Article, ArticleView } from '../../model/types/article';
@@ -12,40 +12,36 @@ const listArticle = Array.from({ length: 3 })
     id: String(index),
   })) as Article[];
 
-export default {
+const meta = {
   title: 'entities/Article/ArticleList',
   component: ArticleList,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ArticleList>;
+} satisfies Meta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => (
-  <ArticleList {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const NormalGrid = Template.bind({});
+export const NormalGrid: Story = {};
 NormalGrid.args = {
   isLoading: false,
   articles: listArticle,
   view: ArticleView.GRID,
 };
 
-export const NormalList = Template.bind({});
+export const NormalList: Story = {};
 NormalList.args = {
   isLoading: false,
   articles: listArticle,
   view: ArticleView.LIST,
 };
 
-export const LoadingList = Template.bind({});
+export const LoadingList: Story = {};
 LoadingList.args = {
   isLoading: true,
   articles: [],
   view: ArticleView.LIST,
 };
 
-export const LoadingGrid = Template.bind({});
+export const LoadingGrid: Story = {};
 LoadingGrid.args = {
   isLoading: true,
   articles: [],

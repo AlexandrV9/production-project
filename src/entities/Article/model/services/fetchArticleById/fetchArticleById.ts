@@ -6,16 +6,19 @@ import { Article } from '../../types/article';
 
 export const fetchArticleById = createAsyncThunk<
   Article,
-  string,
+  string | undefined,
   ThunkConfig<string>
 >('articleDetails/fetchArticleById', async (articleId, thunkApi) => {
   const { extra, rejectWithValue } = thunkApi;
 
   try {
+    if(!articleId) {
+      throw new Error('');
+    }
     const res = await extra.api.get<Article>(`articles/${articleId}`, {
       params: {
-        _expand: "user"
-      }
+        _expand: 'user',
+      },
     });
 
     if (!res.data) {
@@ -24,6 +27,7 @@ export const fetchArticleById = createAsyncThunk<
 
     return res.data;
   } catch (error) {
+    console.log(error)
     return rejectWithValue('error');
   }
 });

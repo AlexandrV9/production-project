@@ -1,4 +1,4 @@
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -6,28 +6,27 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 
 import Modal from './Modal';
 
-export default {
+const meta = {
   title: 'shared/Modal',
   component: Modal,
-  argTypes: {
-    backgroundColor: { control: 'color' },
+} satisfies Meta<typeof Modal>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {
+  args: {
+    isOpen: true,
+    children:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam officia incidunt possimus commodi et debitis, officiis quidem asperiores dignissimos beatae tempora sit magnam quod sed repellat quis magni ullam error?',
   },
-} as ComponentMeta<typeof Modal>;
-
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-  isOpen: true,
-  children:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam officia incidunt possimus commodi et debitis, officiis quidem asperiores dignissimos beatae tempora sit magnam quod sed repellat quis magni ullam error?',
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-  isOpen: true,
-  children:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam officia incidunt possimus commodi et debitis, officiis quidem asperiores dignissimos beatae tempora sit magnam quod sed repellat quis magni ullam error?',
+export const Dark: Story = {
+  args: {
+    isOpen: true,
+    children:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam officia incidunt possimus commodi et debitis, officiis quidem asperiores dignissimos beatae tempora sit magnam quod sed repellat quis magni ullam error?',
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)];

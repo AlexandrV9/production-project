@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 import { Reducer } from '@reduxjs/toolkit';
 
@@ -15,6 +15,7 @@ export type ReducersList = {
 interface DynamicModuleLoaderProps {
   reducers: ReducersList;
   removeAfterUnmount?: boolean;
+  children: ReactNode;
 }
 
 // Если removeAfterUnmount = true, как только компонент размонтируется

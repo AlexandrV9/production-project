@@ -61,6 +61,7 @@ describe('loginSlice.test', () => {
       validateError: [ValidateProfileError.SERVER_ERROR],
     };
     expect(
+      // @ts-ignore
       profileReducer(state as ProfileSchema, updateProfileData.pending),
     ).toEqual({ isLoading: true, validateErroes: undefined });
   });

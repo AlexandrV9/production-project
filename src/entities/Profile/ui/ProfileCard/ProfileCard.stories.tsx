@@ -1,26 +1,22 @@
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 
-import testImg from "shared/assets/tests/test-photo.jpeg"
+import testImg from 'shared/assets/tests/test-photo.jpeg';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import { ProfileCard } from './ProfileCard';
 
-export default {
+const meta = {
   title: 'entities/ProfileCard',
   component: ProfileCard,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ProfileCard>;
+} satisfies Meta<typeof ProfileCard>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => (
-  <ProfileCard {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Primary = Template.bind({});
+export const Primary: Story = {};
 Primary.args = {
   data: {
     username: 'admin',
@@ -30,18 +26,18 @@ Primary.args = {
     first: 'tes',
     city: 'Anist',
     currency: Currency.EUR,
-    avatar: testImg
+    avatar: testImg,
   },
 };
 
-export const withError = Template.bind({});
+export const withError: Story = {};
 withError.args = {
   error: 'true',
 };
-withError.decorators = [StoreDecorator({})]
+withError.decorators = [StoreDecorator({})];
 
-export const Loading = Template.bind({});
+export const Loading: Story = {};
 Loading.args = {
   isLoading: true,
 };
-Loading.decorators = [StoreDecorator({})]
+Loading.decorators = [StoreDecorator({})];

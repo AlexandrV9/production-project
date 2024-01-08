@@ -1,4 +1,4 @@
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleView } from 'entities/Article';
 import { testArticle } from 'entities/Article/model/consts/testArticle';
@@ -7,19 +7,15 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 
 import ArticlesPage from './ArticlesPage';
 
-export default {
+const meta = {
   title: 'pages/Article/ArticlesPage',
   component: ArticlesPage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ArticlesPage>;
+} satisfies Meta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => (
-  <ArticlesPage {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const NormalGrid = Template.bind({});
+export const NormalGrid: Story = {};
 NormalGrid.args = {};
 NormalGrid.decorators = [
   StoreDecorator({
@@ -42,7 +38,7 @@ NormalGrid.decorators = [
   }),
 ];
 
-export const NormalList = Template.bind({});
+export const NormalList: Story = {};
 NormalList.args = {};
 NormalList.decorators = [
   StoreDecorator({
@@ -65,7 +61,7 @@ NormalList.decorators = [
   }),
 ];
 
-export const LoadingGrid = Template.bind({});
+export const LoadingGrid: Story = {};
 LoadingGrid.args = {};
 LoadingGrid.decorators = [
   StoreDecorator({
@@ -79,7 +75,7 @@ LoadingGrid.decorators = [
   }),
 ];
 
-export const LoadingList = Template.bind({});
+export const LoadingList: Story = {};
 LoadingList.args = {};
 LoadingList.decorators = [
   StoreDecorator({
@@ -93,7 +89,7 @@ LoadingList.decorators = [
   }),
 ];
 
-export const Error = Template.bind({});
+export const Error: Story = {};
 Error.args = {};
 Error.decorators = [
   StoreDecorator({

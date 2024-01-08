@@ -1,20 +1,19 @@
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Text } from '../Text/Text';
 
 import { Card } from './Card';
 
-export default {
+const meta = {
   title: 'shared/Card',
   component: Card,
-  argTypes: {
-    backgroundColor: { control: 'color' },
+} satisfies Meta<typeof Card>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Normal: Story = {
+  args: {
+    children: <Text title='title' text='text text' />,
   },
-} as ComponentMeta<typeof Card>;
-
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
-
-export const Normal = Template.bind({});
-Normal.args = {
-  children: <Text title='title' text='text text'/>
 };

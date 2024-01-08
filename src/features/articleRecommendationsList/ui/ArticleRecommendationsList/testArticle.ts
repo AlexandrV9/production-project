@@ -1,36 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Article, ArticleBlockType, ArticleType } from "../../../../entities/Article/model/types/article"
 
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-
-import {
-  Article,
-  ArticleBlockType,
-  ArticleType,
-} from '../../model/types/article';
-
-import { ArticleDetails } from './ArticleDetails';
-
-const meta = {
-  title: 'entities/Article/ArticleDetails',
-  component: ArticleDetails,
-} satisfies Meta<typeof ArticleDetails>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-const article: Article = {
+/* eslint-disable max-len */
+export const testArticle: Article = {
   id: '1',
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2023 год?',
   img: 'https://habrastorage.org/webt/gp/rx/uj/gprxuj2skxbmhitwrnlg1ibcalm.jpeg',
-  views: 1022,
-  createdAt: '26.10.2023',
   user: {
     id: '1',
     username: 'admin',
-    avatar:
-      'https://images.unsplash.com/photo-1606220838315-056192d5e927?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    avatar: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?q=80&w=2831&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
+  views: 1022,
+  createdAt: '26.10.2023',
   type: [ArticleType.IT],
   blocks: [
     {
@@ -93,42 +75,3 @@ const article: Article = {
     },
   ],
 };
-
-export const Normal: Story = {
-  args: {
-    id: '1',
-  },
-};
-Normal.decorators = [
-  StoreDecorator({
-    articleDetails: {
-      data: article,
-    },
-  }),
-];
-
-export const Loading: Story = {
-  args: {
-    id: '1',
-  },
-};
-Loading.decorators = [
-  StoreDecorator({
-    articleDetails: {
-      isLoading: true,
-    },
-  }),
-];
-
-export const Error: Story = {
-  args: {
-    id: '1',
-  },
-};
-Error.decorators = [
-  StoreDecorator({
-    articleDetails: {
-      error: 'error',
-    },
-  }),
-];

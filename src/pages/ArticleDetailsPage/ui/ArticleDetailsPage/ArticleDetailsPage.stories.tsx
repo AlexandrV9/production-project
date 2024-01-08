@@ -1,4 +1,4 @@
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { testArticle } from 'entities/Article/model/consts/testArticle';
 
@@ -6,7 +6,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 
 import ArticleDetailsPage from './ArticleDetailsPage';
 
-export default {
+const meta = {
   title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
   component: ArticleDetailsPage,
   parameters: {
@@ -15,16 +15,12 @@ export default {
       route: '/articles/1',
     },
   },
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ArticleDetailsPage>;
+} satisfies Meta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
-  <ArticleDetailsPage {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Normal = Template.bind({});
+export const Normal: Story = {};
 Normal.args = {};
 Normal.decorators = [
   StoreDecorator({
