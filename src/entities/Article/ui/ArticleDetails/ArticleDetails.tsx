@@ -23,7 +23,8 @@ import {
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
+import { ArticleBlockType } from 'entities/Article/model/consts/constsArticle';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -56,32 +57,32 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
-    case ArticleBlockType.CODE:
-      return (
-        <ArticleCodeBlockComponent
-          className={cls.block}
-          block={block}
-          key={block.id}
-        />
-      );
-    case ArticleBlockType.IMAGE:
-      return (
-        <ArticleImageBlockComponent
-          className={cls.block}
-          block={block}
-          key={block.id}
-        />
-      );
-    case ArticleBlockType.TEXT:
-      return (
-        <ArticleTextBlockComponent
-          className={cls.block}
-          block={block}
-          key={block.id}
-        />
-      );
-    default:
-      return null;
+      case ArticleBlockType.CODE:
+        return (
+          <ArticleCodeBlockComponent
+            className={cls.block}
+            block={block}
+            key={block.id}
+          />
+        );
+      case ArticleBlockType.IMAGE:
+        return (
+          <ArticleImageBlockComponent
+            className={cls.block}
+            block={block}
+            key={block.id}
+          />
+        );
+      case ArticleBlockType.TEXT:
+        return (
+          <ArticleTextBlockComponent
+            className={cls.block}
+            block={block}
+            key={block.id}
+          />
+        );
+      default:
+        return null;
     }
   }, []);
 

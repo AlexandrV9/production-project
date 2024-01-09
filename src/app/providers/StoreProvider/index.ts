@@ -4,7 +4,8 @@ import type {
   ThunkConfig,
   ThunkExtraArg,
 } from './config/StateSchema';
-import { AppDispatch,createReduxStore } from './config/store';
+import type { AppDispatch } from './config/store';
+import { createReduxStore } from './config/store';
 import StoreProvider from './ui/StoreProvider';
 
 export {

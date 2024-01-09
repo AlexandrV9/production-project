@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
+import { ArticleView } from 'entities/Article/model/consts/constsArticle';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
@@ -47,7 +48,13 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view], cls.loading])}>
+      <div
+        className={classNames(cls.ArticleList, {}, [
+          className,
+          cls[view],
+          cls.loading,
+        ])}
+      >
         {getSkeletons(view)}
       </div>
     );

@@ -5,7 +5,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { HStack } from 'shared/ui/Stack';
 
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from 'entities/Article/model/consts/constsArticle';
 
 import cls from './ArticleListItem.module.scss';
 
@@ -30,7 +30,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemProps> = memo(
         >
           <Card className={cls.card}>
             <div className={cls.header}>
-              <Skeleton width={30} height={30} border="50%" />
+              <Skeleton width={30} height={30} border='50%' />
               <Skeleton width={150} height={16} className={cls.username} />
               <Skeleton width={150} height={16} className={cls.date} />
             </div>

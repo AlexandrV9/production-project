@@ -2,7 +2,9 @@ import { StateSchema } from 'app/providers/StoreProvider';
 
 import { testArticle } from 'entities/Article/model/consts/testArticle';
 
-import { ArticleSortField, ArticleType, ArticleView } from '../../../../entities/Article/model/types/article';
+import { ArticleSortField } from 'entities/Article/model/consts/constsArticle';
+import { ArticleType } from 'entities/Article/model/consts/constsArticle';
+import { ArticleView } from 'entities/Article/model/consts/constsArticle';
 import { getArticles } from '../slices/articlePageSlice';
 
 import {
@@ -106,10 +108,10 @@ describe('articlePageSelectors', () => {
   test('should return article page order', () => {
     const state: DeepPartial<StateSchema> = {
       articlePage: {
-        order: "asc",
+        order: 'asc',
       },
     };
-    expect(getArticlePageOrder(state as StateSchema)).toBe("asc");
+    expect(getArticlePageOrder(state as StateSchema)).toBe('asc');
   });
 
   test('should return article page sort', () => {
@@ -118,16 +120,18 @@ describe('articlePageSelectors', () => {
         sort: ArticleSortField.CREATED,
       },
     };
-    expect(getArticlePageSort(state as StateSchema)).toBe(ArticleSortField.CREATED);
+    expect(getArticlePageSort(state as StateSchema)).toBe(
+      ArticleSortField.CREATED,
+    );
   });
 
   test('should return article page search', () => {
     const state: DeepPartial<StateSchema> = {
       articlePage: {
-        search: "123",
+        search: '123',
       },
     };
-    expect(getArticlePageSearch(state as StateSchema)).toBe("123");
+    expect(getArticlePageSearch(state as StateSchema)).toBe('123');
   });
 
   test('should return article page type', () => {

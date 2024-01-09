@@ -1,6 +1,8 @@
 import { testArticle } from 'entities/Article/model/consts/testArticle';
 
-import { ArticleSortField, ArticleType, ArticleView } from '../../../../entities/Article/model/types/article';
+import { ArticleSortField } from 'entities/Article/model/consts/constsArticle';
+import { ArticleType } from 'entities/Article/model/consts/constsArticle';
+import { ArticleView } from 'entities/Article/model/consts/constsArticle';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlePageSchema } from '../types/articlePageSchema';
 
@@ -57,14 +59,14 @@ describe('articlePageSlice.test', () => {
 
   test('test set order = desc', () => {
     const state: DeepPartial<ArticlePageSchema> = {
-      order: "asc",
+      order: 'asc',
     };
     expect(
       articlePageReducer(
         state as ArticlePageSchema,
-        articlePageActions.setOrder("desc"),
+        articlePageActions.setOrder('desc'),
       ),
-    ).toEqual({ order: "desc" });
+    ).toEqual({ order: 'desc' });
   });
 
   test('test set sort = TITLE', () => {
@@ -81,14 +83,14 @@ describe('articlePageSlice.test', () => {
 
   test('test set search = dew', () => {
     const state: DeepPartial<ArticlePageSchema> = {
-      search: "",
+      search: '',
     };
     expect(
       articlePageReducer(
         state as ArticlePageSchema,
-        articlePageActions.setSearch("dew"),
+        articlePageActions.setSearch('dew'),
       ),
-    ).toEqual({ search: "dew" });
+    ).toEqual({ search: 'dew' });
   });
 
   test('test set type = dew', () => {
@@ -102,7 +104,6 @@ describe('articlePageSlice.test', () => {
       ),
     ).toEqual({ type: ArticleType.IT });
   });
-
 
   test('test get article list service pending', () => {
     const state: DeepPartial<ArticlePageSchema> = {

@@ -21,12 +21,9 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { HStack } from 'shared/ui/Stack';
 import { Text, TextAlign } from 'shared/ui/Text/Text';
 
-import {
-  Article,
-  ArticleBlockType,
-  ArticleTextBlock,
-  ArticleView,
-} from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
+import { ArticleBlockType } from 'entities/Article/model/consts/constsArticle';
+import { ArticleView } from 'entities/Article/model/consts/constsArticle';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import cls from './ArticleListItem.module.scss';
@@ -57,7 +54,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
   );
 
   const handleButtonClick = useCallback(() => {
-    console.log("handleButtonClick")
+    console.log('handleButtonClick');
     sessionStorage.setItem(ARTICLE_LIST_ITEM_INDEX, JSON.stringify(index));
   }, [index]);
 

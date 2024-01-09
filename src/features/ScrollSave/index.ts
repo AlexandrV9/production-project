@@ -6,7 +6,7 @@ import {
   scrollSaveActions,
   scrollSaveReducer,
 } from './model/slices/scrollSaveSlice';
-import { ScrollSaveSchema } from './model/types/ScrollSaveSchema';
+import type { ScrollSaveSchema } from './model/types/ScrollSaveSchema';
 
 export {
   getSaveScroll,

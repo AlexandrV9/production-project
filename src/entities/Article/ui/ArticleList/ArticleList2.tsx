@@ -25,7 +25,8 @@ import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
+import { ArticleView } from 'entities/Article/model/consts/constsArticle';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
@@ -65,12 +66,14 @@ const ItemContainerComp: FC<
   </div>
 ));
 
-const Footer: FC<{ context?: { isLoading?: boolean } }> = memo(({ context }) => {
-  if (context?.isLoading) {
-    return <div className={cls.skeleton}>{getSkeletons()}</div>;
-  }
-  return null;
-});
+const Footer: FC<{ context?: { isLoading?: boolean } }> = memo(
+  ({ context }) => {
+    if (context?.isLoading) {
+      return <div className={cls.skeleton}>{getSkeletons()}</div>;
+    }
+    return null;
+  },
+);
 
 export const ArticleList: FC<ArticleListProps> = memo((props) => {
   const {
@@ -142,7 +145,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
           components={{
             Header,
             // eslint-disable-next-line react/no-unstable-nested-components
-            Footer: () => <Footer context={{ isLoading }}/>
+            Footer: () => <Footer context={{ isLoading }} />,
           }}
         />
       ) : (

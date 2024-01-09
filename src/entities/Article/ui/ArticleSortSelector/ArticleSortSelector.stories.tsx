@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ArticleSortField } from '../../model/types/article';
+import { ArticleSortField } from 'entities/Article/model/consts/constsArticle';
 
 import { ArticleSortSelector } from './ArticleSortSelector';
 
