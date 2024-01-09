@@ -5,7 +5,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { HStack } from 'shared/ui/Stack';
 
-import { ArticleView } from 'entities/Article/model/consts/constsArticle';
+import { ArticleView } from '../../model/consts/constsArticle';
 
 import cls from './ArticleListItem.module.scss';
 

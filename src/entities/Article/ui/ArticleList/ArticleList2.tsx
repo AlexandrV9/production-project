@@ -1,32 +1,26 @@
 import {
-  ComponentType,
   FC,
-  FunctionComponent,
   HTMLAttributeAnchorTarget,
   memo,
-  ReactElement,
   useEffect,
-  useMemo,
   useRef,
-  useState,
+  useState
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   GridScrollSeekPlaceholderProps,
-  ItemContent,
   Virtuoso,
   VirtuosoGrid,
-  VirtuosoGridHandle,
+  VirtuosoGridHandle
 } from 'react-virtuoso';
 
 import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 
-import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 
+import { ArticleView } from '../../model/consts/constsArticle';
 import { Article } from '../../model/types/article';
-import { ArticleView } from 'entities/Article/model/consts/constsArticle';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 

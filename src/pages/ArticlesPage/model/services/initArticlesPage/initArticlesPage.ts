@@ -2,8 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from 'app/providers/StoreProvider';
 
-import { ArticleSortField } from 'entities/Article/model/consts/constsArticle';
-import { ArticleType } from 'entities/Article/model/consts/constsArticle';
+import { ArticleSortField , ArticleType } from 'entities/Article/model/consts/constsArticle';
 
 import { SortOrder } from 'shared/types';
 
@@ -23,20 +22,20 @@ export const initArticlesPage = createAsyncThunk<
   if (!inited) {
     searchParams.forEach((value, key) => {
       switch (key) {
-        case 'order':
-          dispatch(articlePageActions.setOrder(value as SortOrder));
-          break;
-        case 'sort':
-          dispatch(articlePageActions.setSort(value as ArticleSortField));
-          break;
-        case 'type':
-          dispatch(articlePageActions.setType(value as ArticleType));
-          break;
-        case 'search':
-          dispatch(articlePageActions.setSearch(value));
-          break;
-        default:
-          break;
+      case 'order':
+        dispatch(articlePageActions.setOrder(value as SortOrder));
+        break;
+      case 'sort':
+        dispatch(articlePageActions.setSort(value as ArticleSortField));
+        break;
+      case 'type':
+        dispatch(articlePageActions.setType(value as ArticleType));
+        break;
+      case 'search':
+        dispatch(articlePageActions.setSearch(value));
+        break;
+      default:
+        break;
       }
     });
 

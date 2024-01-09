@@ -1,6 +1,6 @@
+import { ArticleBlockType , ArticleType } from 'entities/Article/model/consts/constsArticle';
+
 import { Article } from '../../../../entities/Article/model/types/article';
-import { ArticleBlockType } from 'entities/Article/model/consts/constsArticle';
-import { ArticleType } from 'entities/Article/model/consts/constsArticle';
 
 /* eslint-disable max-len */
 export const testArticle: Article = {

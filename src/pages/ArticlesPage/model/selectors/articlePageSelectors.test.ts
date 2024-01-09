@@ -1,10 +1,12 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 
+import {
+  ArticleSortField,
+  ArticleType,
+  ArticleView,
+} from 'entities/Article/model/consts/constsArticle';
 import { testArticle } from 'entities/Article/model/consts/testArticle';
 
-import { ArticleSortField } from 'entities/Article/model/consts/constsArticle';
-import { ArticleType } from 'entities/Article/model/consts/constsArticle';
-import { ArticleView } from 'entities/Article/model/consts/constsArticle';
 import { getArticles } from '../slices/articlePageSlice';
 
 import {

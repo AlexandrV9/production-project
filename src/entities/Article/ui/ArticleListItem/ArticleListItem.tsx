@@ -21,9 +21,8 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { HStack } from 'shared/ui/Stack';
 import { Text, TextAlign } from 'shared/ui/Text/Text';
 
+import { ArticleBlockType , ArticleView } from '../../model/consts/constsArticle';
 import { Article, ArticleTextBlock } from '../../model/types/article';
-import { ArticleBlockType } from 'entities/Article/model/consts/constsArticle';
-import { ArticleView } from 'entities/Article/model/consts/constsArticle';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import cls from './ArticleListItem.module.scss';

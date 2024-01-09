@@ -1,8 +1,6 @@
+import { ArticleSortField , ArticleType , ArticleView } from 'entities/Article/model/consts/constsArticle';
 import { testArticle } from 'entities/Article/model/consts/testArticle';
 
-import { ArticleSortField } from 'entities/Article/model/consts/constsArticle';
-import { ArticleType } from 'entities/Article/model/consts/constsArticle';
-import { ArticleView } from 'entities/Article/model/consts/constsArticle';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlePageSchema } from '../types/articlePageSchema';
 
