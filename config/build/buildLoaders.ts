@@ -9,13 +9,15 @@ import { buildTypescriptLoader } from './loaders/buildTypescriptLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const svgLoader = buildSvgLoader(options);
-  const babelLoader = buildBabelLoader(options);
   const cssLoader = buildCssLoader(options);
+  
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
   // Если не используем тайпскрипт - нужен babel-loader
-  const typescriptLoader = buildTypescriptLoader(options);
+  // const typescriptLoader = buildTypescriptLoader(options);
 
   const fileLoader = buildFileLoader(options);
 
-  return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
+  return [fileLoader, svgLoader, codeBabelLoader, tsxCodeBabelLoader, cssLoader];
 }
