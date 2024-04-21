@@ -4,9 +4,10 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { DropDownDireaction } from 'shared/types/ui';
 
-import { Button, ButtonTheme } from '../Button/Button';
-import { HStack } from '../Stack';
+import { Button, ButtonTheme } from '../../../Button/Button';
+import { HStack } from '../../../Stack';
 
+import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
 
 interface ListBoxItems {
@@ -38,9 +39,7 @@ export function ListBox(props: ListBoxProps) {
     direction = 'bottom',
   } = props;
 
-  const optionsClasses = [cls[direction]];
-
-  console.log(value);
+  const optionsClasses = [popupCls[direction]];
 
   return (
     <HStack gap='4'>
@@ -49,7 +48,7 @@ export function ListBox(props: ListBoxProps) {
         as='div'
         value={value}
         onChange={onChange}
-        className={classNames(cls.ListBox, {}, [className])}
+        className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
         disabled={readonly}
       >
         <HListBox.Button as='div'>
@@ -74,9 +73,9 @@ export function ListBox(props: ListBoxProps) {
               {({ active, selected }) => (
                 <li
                   className={classNames(cls.item, {
-                    [cls.active]: active,
+                    [popupCls.active]: active,
                     [cls.selected]: selected,
-                    [cls.disabled]: item.disabled,
+                    [popupCls.disabled]: item.disabled,
                   })}
                 >
                   {item.content}

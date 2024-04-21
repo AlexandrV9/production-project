@@ -50,17 +50,17 @@ export const Page: FC<PageProps> = (props) => {
     }
   });
 
-  useInfiniteScroll({
-    triggerRef,
-    wrapperRef,
-    callback: onScrollEnd,
-  });
+  // useInfiniteScroll({
+  //   triggerRef,
+  //   wrapperRef,
+  //   callback: onScrollEnd,
+  // });
 
   return (
     <main
       className={classNames(cls.Page, {}, [className])}
       ref={wrapperRef}
-      onScroll={onScroll}
+      // onScroll={onScroll}
     >
       {children}
       {onScrollEnd ? <div ref={triggerRef} className={cls.trigger}/> : null}
