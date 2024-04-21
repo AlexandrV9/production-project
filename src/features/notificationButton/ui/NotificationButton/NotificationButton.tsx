@@ -19,6 +19,7 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
 
   return (
     <Popover
+      unmount={false}
       direction='bottomLeft'
       className={cls.NotificationButton}
       trigger={

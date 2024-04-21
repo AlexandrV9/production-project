@@ -12,10 +12,11 @@ interface PopoverProps {
   trigger: ReactNode;
   direction?: DropDownDireaction;
   children?: ReactNode;
+  unmount?: boolean;
 }
 
 export const Popover: FC<PopoverProps> = (props) => {
-  const { className, trigger, direction = 'bottomRight', children } = props;
+  const { className, trigger, direction = 'bottomRight', children, unmount } = props;
 
   return (
     <HPopover
@@ -24,6 +25,7 @@ export const Popover: FC<PopoverProps> = (props) => {
       <HPopover.Button className={popupCls.trigger}>{trigger}</HPopover.Button>
 
       <HPopover.Panel
+        unmount={unmount}
         className={classNames(cls.panel, {}, [popupCls[direction]])}
       >
         {children}
