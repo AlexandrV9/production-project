@@ -9,7 +9,9 @@ import {
   useState,
 } from 'react';
 
-import { classNames,Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+
+import { Overlay } from '../Overlay/Overlay';
 
 import cls from './Modal.module.scss';
 
@@ -28,6 +30,7 @@ const Modal: FC<ModalProps> = (props) => {
 
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [isRenderModal, setIsRenderModal] = useState<boolean>(false);
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   const closeHandler = useCallback(() => {
@@ -39,10 +42,6 @@ const Modal: FC<ModalProps> = (props) => {
       }, ANIMATION_DELAY);
     }
   }, [onClose]);
-
-  const onContentClick = (event: MouseEvent) => {
-    event.stopPropagation();
-  };
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -56,7 +55,14 @@ const Modal: FC<ModalProps> = (props) => {
   useEffect(() => {
     if (isOpen) {
       setIsMounted(true);
+      timerRef.current = setTimeout(() => {
+        setIsRenderModal(true);
+      }, 0);
     }
+    return () => {
+      clearInterval(timerRef.current);
+      setIsRenderModal(false);
+    };
   }, [isOpen]);
 
   useEffect(() => {
@@ -70,7 +76,7 @@ const Modal: FC<ModalProps> = (props) => {
   }, [isOpen, onKeyDown]);
 
   const mods: Mods = {
-    [cls.opened]: isOpen,
+    [cls.opened]: isRenderModal,
     [cls.closing]: isClosing,
   };
 
@@ -80,11 +86,8 @@ const Modal: FC<ModalProps> = (props) => {
 
   return (
     <div className={classNames(cls.Modal, mods, [className])}>
-      <div className={cls.overlay} onClick={closeHandler}>
-        <div className={cls.content} onClick={onContentClick}>
-          {children}
-        </div>
-      </div>
+      <Overlay onClick={closeHandler} />
+      <div className={cls.content}>{children}</div>
     </div>
   );
 };
