@@ -11,6 +11,7 @@ import {
 import { useTheme } from 'app/providers/ThemeProvider';
 
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useModal } from 'shared/lib/hooks/useModal';
 
 import { Overlay } from '../Overlay/Overlay';
 import Portal from '../Portal/Portal';
@@ -22,31 +23,28 @@ interface DrawerProps {
   children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 
-const ANIMATION_DELAY = 280;
-
 export const Drawer: FC<DrawerProps> = memo((props) => {
-  const { className, children, isOpen, onClose } = props;
-
-  const [isClosing, setIsClosing] = useState(false);
-
-  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+  const { className, children, isOpen, onClose, lazy } = props;
 
   const { theme } = useTheme();
 
-  const handleClose = useCallback(() => {
-    setIsClosing(true);
-    timerRef.current = setTimeout(() => {
-      setIsClosing(false);
-      onClose?.();
-    }, ANIMATION_DELAY);
-  }, [onClose]);
+  const { close, isClosing, isMounted } = useModal({
+    animationDelay: 280,
+    onClose,
+    isOpen,
+  });
 
   const mods = {
     [cls.opened]: isOpen,
     [cls.closing]: isClosing,
   };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
@@ -57,7 +55,7 @@ export const Drawer: FC<DrawerProps> = memo((props) => {
           'app_drawer',
         ])}
       >
-        <Overlay onClick={handleClose} />
+        <Overlay onClick={close} />
         <div className={cls.content}>{children}</div>
       </div>
     </Portal>
