@@ -1,18 +1,10 @@
-import {
-  FC,
-  MouseEvent,
-  MutableRefObject,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { FC, ReactNode } from 'react';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { useModal } from 'shared/lib/hooks/useModal';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { useModal } from '@/shared/lib/hooks/useModal';
 
 import { Overlay } from '../Overlay/Overlay';
+import Portal from '../Portal/Portal';
 
 import cls from './Modal.module.scss';
 
@@ -43,10 +35,12 @@ const Modal: FC<ModalProps> = (props) => {
   }
 
   return (
-    <div className={classNames(cls.Modal, mods, [className])}>
-      <Overlay onClick={close} />
-      <div className={cls.content}>{children}</div>
-    </div>
+    <Portal>
+      <div className={classNames(cls.Modal, mods, [className])}>
+        <Overlay onClick={close} />
+        <div className={cls.content}>{children}</div>
+      </div>
+    </Portal>
   );
 };
 

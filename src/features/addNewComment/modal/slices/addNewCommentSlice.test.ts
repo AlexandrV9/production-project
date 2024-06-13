@@ -1,4 +1,4 @@
-import { ProfileSchema } from 'features/EditableProfileCard/model/types/editableProfileCardSchema';
+import { ProfileSchema } from '@/features/EditableProfileCard/model/types/editableProfileCardSchema';
 
 import { AddNewCommentSchema } from '../types/addNewComment';
 

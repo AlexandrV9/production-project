@@ -37,13 +37,15 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config!.plugins!.push(
     new DefinePlugin({
-      __API__: JSON.stringify("http://testapi.ru"),
+      __API__: JSON.stringify('http://testapi.ru'),
       __IS_DEV__: JSON.stringify(true),
       __PROJECT__: JSON.stringify('storybook'),
     }),
   );
 
   config!.module!.rules!.push(buildCssLoader({ isDev: true }));
+
+  config.resolve!.alias = { '@': paths.src }
 
   return config;
 };

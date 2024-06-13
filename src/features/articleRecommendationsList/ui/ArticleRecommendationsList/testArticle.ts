@@ -1,4 +1,4 @@
-import { ArticleBlockType , ArticleType } from 'entities/Article/model/consts/constsArticle';
+import { ArticleBlockType , ArticleType } from '@/entities/Article/model/consts/constsArticle';
 
 import { Article } from '../../../../entities/Article/model/types/article';
 

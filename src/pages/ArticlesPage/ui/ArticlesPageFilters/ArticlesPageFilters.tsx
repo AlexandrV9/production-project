@@ -9,15 +9,14 @@ import {
   ArticleTypeTabs,
   ArticleView,
   ArticleViewSelector,
-} from 'entities/Article';
-
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDebaunce } from 'shared/lib/hooks/useDebaunce';
-import { SortOrder } from 'shared/types';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/ui/Input';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+} from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDebaunce } from '@/shared/lib/hooks/useDebaunce';
+import { SortOrder } from '@/shared/types';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/ui/Input';
+import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
 
 import {
   getArticlePageOrder,

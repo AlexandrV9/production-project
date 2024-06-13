@@ -5,21 +5,12 @@
   left: 0;
   right: 0;
   opacity: 0;
-  pointer-events: none; // нельзя делать никакие действия с окном (кликать, выделять и т.д)
-  z-index: -1;
+  pointer-events: none;
   color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.overlay {
-  width: 100%;
-  height: 100%;
-  background: var(--overlay-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: var(--modal-z-index);
 }
 
 .content {
@@ -29,12 +20,12 @@
   transition: 0.3s transform;
   transform: scale(0.5);
   max-width: 60%;
+  z-index: var(--modal-z-index);
 }
 
 .opened {
   opacity: 1;
   pointer-events: auto;
-  z-index: var(--modal-z-index);
 
   .content {
     transform: scale(1);

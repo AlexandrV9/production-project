@@ -5,6 +5,7 @@
   position: relative;
   transition: width 0.3s;
   flex-shrink: 0;
+  z-index: var(--sidebar-z-index);
 }
 
 .switchers {

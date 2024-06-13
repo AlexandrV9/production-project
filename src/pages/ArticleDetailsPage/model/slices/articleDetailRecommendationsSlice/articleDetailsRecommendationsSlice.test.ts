@@ -1,5 +1,5 @@
-import { Article } from 'entities/Article';
-import { testArticle } from 'entities/Article/model/consts/testArticle';
+import { Article } from '@/entities/Article';
+import { testArticle } from '@/entities/Article/model/consts/testArticle';
 
 import { fetchArticleRecommendations } from '../../services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { ArticleDetailsRecommendationsSchema } from '../../types/ArticleDetailsRecommendationsSchema';

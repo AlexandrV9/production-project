@@ -1,19 +1,15 @@
 import { FC } from 'react';
 
-import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
+import { profileReducer } from '@/entities/Profile';
+import { addNewCommentReducer } from '@/features/addNewComment/modal/slices/addNewCommentSlice';
+import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
+import { articlePageReducer } from '@/pages/ArticlesPage';
+import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
-import { articlePageReducer } from 'pages/ArticlesPage';
-
-import { addNewCommentReducer } from 'features/addNewComment/modal/slices/addNewCommentSlice';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { profileReducer } from 'entities/Profile';
-
-import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 
 const defaultAsyncReducer: ReducersList = {
   loginForm: loginReducer,

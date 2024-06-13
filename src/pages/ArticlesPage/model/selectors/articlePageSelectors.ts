@@ -1,6 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-
-import { ArticleSortField , ArticleType , ArticleView } from 'entities/Article/model/consts/constsArticle';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ArticleSortField , ArticleType , ArticleView } from '@/entities/Article/model/consts/constsArticle';
 
 export const getArticlePageIsLoading = (state: StateSchema) =>
   state.articlePage?.isLoading || false;

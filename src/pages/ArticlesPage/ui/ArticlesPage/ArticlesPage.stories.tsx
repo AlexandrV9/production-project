@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ArticleView } from 'entities/Article';
-import { testArticle } from 'entities/Article/model/consts/testArticle';
-
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ArticleView } from '@/entities/Article';
+import { testArticle } from '@/entities/Article/model/consts/testArticle';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import ArticlesPage from './ArticlesPage';
 

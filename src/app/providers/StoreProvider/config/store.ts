@@ -7,13 +7,11 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit';
 
-import { scrollSaveReducer } from 'features/ScrollSave';
-
-import { counterReducer } from 'entities/Counter';
-import { userReducer } from 'entities/User';
-
-import { $api } from 'shared/api/api';
-import { rtkApi } from 'shared/api/rtkApi';
+import { counterReducer } from '@/entities/Counter';
+import { userReducer } from '@/entities/User';
+import { scrollSaveReducer } from '@/features/ScrollSave';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 // eslint-disable-next-line import/no-cycle
 import { createReducerManager } from './reducerManager';

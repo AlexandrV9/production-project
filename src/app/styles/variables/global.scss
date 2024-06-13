@@ -27,10 +27,12 @@
   --sidebar-width-collapsed: 80px;
 
   // z - Индексы
-  --modal-z-index: 10;
-  --sidebar-btn-z-index: 9;
-  --sidebar-dropdown-z-index: 8;
-  --sidebar-listbox-z-index: 8;
+  --modal-z-index: 5;
+  --overlay-z-index: 4;
+  --sidebar-btn-z-index: 3;
+  --sidebar-dropdown-z-index: 3;
+  --sidebar-listbox-z-index: 3;
+  --sidebar-z-index: 2;
 
   // Цвета
   --overlay-color: rgba(0 0 0 / 65%);

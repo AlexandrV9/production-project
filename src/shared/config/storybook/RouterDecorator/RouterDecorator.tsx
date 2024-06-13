@@ -1,7 +1,7 @@
 import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
 import { StoryContext } from '@storybook/react';
 
-import { RouterUtils } from 'app/providers/router';
+import { RouterUtils } from '@/app/providers/router';
 
 export const RouterDecorator = (
   Story: any,

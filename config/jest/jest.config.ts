@@ -8,8 +8,8 @@ import path from 'path';
 export default {
   globals: {
     __IS_DEV__: true,
-    __API__: "",
-    __PROJECT__: "jest"
+    __API__: '',
+    __PROJECT__: 'jest',
   },
   clearMocks: true,
   testEnvironment: 'jsdom',
@@ -26,16 +26,20 @@ export default {
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    '^@/(.*)$': '<rootDir>src/$1',
   },
-  transformIgnorePatterns: ["node_modules/(?!axios)"],
+  transformIgnorePatterns: ['node_modules/(?!axios)'],
   reporters: [
-    "default",
-    ["jest-html-reporters", {
-      "publicPath": "<rootDir>/reports/unit",
-      "filename": "report.html",
-      "openReport": true,
-      "inlineSourse": true,
-    }]
+    'default',
+    [
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>/reports/unit',
+        filename: 'report.html',
+        openReport: true,
+        inlineSourse: true,
+      },
+    ],
   ],
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -152,10 +156,7 @@ export default {
   // The glob patterns Jest uses to detect test files
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: [
-    "\\\\node_modules\\\\",
-    "\\\\.fttemplates\\\\"
-  ],
+  testPathIgnorePatterns: ['\\\\node_modules\\\\', '\\\\.fttemplates\\\\'],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],

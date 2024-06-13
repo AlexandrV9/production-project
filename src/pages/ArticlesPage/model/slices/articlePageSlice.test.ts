@@ -1,5 +1,5 @@
-import { ArticleSortField , ArticleType , ArticleView } from 'entities/Article/model/consts/constsArticle';
-import { testArticle } from 'entities/Article/model/consts/testArticle';
+import { ArticleSortField , ArticleType , ArticleView } from '@/entities/Article/model/consts/constsArticle';
+import { testArticle } from '@/entities/Article/model/consts/testArticle';
 
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlePageSchema } from '../types/articlePageSchema';
